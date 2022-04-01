@@ -215,6 +215,7 @@ $(function() {
             //會員專區
             $('.member_block .content').slideDown(1000);
             // 首頁大圖 mp_accordion 
+            $('.mp_accordion_group .mp_accordion_list ul li').removeClass('active');
             $('.mp_accordion_group .mp_accordion_list ul li:nth-child(2)').addClass('active');
             $('.mp_accordion_group .mp_accordion_list ul li').mouseover(function() {
                 $(this).addClass('active');
@@ -237,12 +238,14 @@ $(function() {
         }
         // 首頁大圖 mp_accordion 
         if (ww < wwSmall) {
+            $('.mp_accordion_group .mp_accordion_list ul li').removeClass('active');
             $('.mp_accordion_group .mp_accordion_list ul li:nth-child(2)').removeClass('active');
             $('.mp_accordion_group .mp_accordion_list ul li').mouseover(function() {
                 $(this).removeClass('active');
                 $(this).siblings('li').removeClass('active');
             })
         } else {
+            $('.mp_accordion_group .mp_accordion_list ul li').removeClass('active');
             $('.mp_accordion_group .mp_accordion_list ul li:nth-child(2)').addClass('active');
             $('.mp_accordion_group .mp_accordion_list ul li').mouseover(function() {
                 $(this).addClass('active');
