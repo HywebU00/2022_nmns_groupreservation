@@ -58,7 +58,7 @@ $(function() {
     _mArea.hide();
     // 打開選單 function
     function showSidebar() {
-        _sidebar.show();
+        _sidebar.slideToggle();
         _mArea.slideToggle();
         // _mArea.animate({
         //     'margin-left': 0
@@ -83,6 +83,7 @@ $(function() {
         showSidebar();
         // _body.toggleClass('noscroll');
         $('.member_block .content').slideUp();
+
         e.preventDefault();
     });
     // 關閉動作
@@ -161,6 +162,7 @@ $(function() {
             // 打開會員專區時
             $('.mobile_member_btn').off().click(function(e) {
                 _mArea.stop(true, true).slideUp();
+                _sidebar.slideUp();
                 // _body.removeClass('noscroll');
                 e.preventDefault();
             })
