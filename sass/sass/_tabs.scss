@@ -1,0 +1,144 @@
+.tabSet {
+    max-width: 100%;
+    margin: 1em auto;
+    overflow: hidden;
+    @extend %clearfix;
+    @include screen('mobile') {
+        width: auto;
+        height: auto !important;
+    }
+}
+.tabs {
+    position: relative;
+    &>.tabItem {
+        &.active>a {
+            background-color: $primaryColor;
+            color: #FFF;
+        }
+        float: left;
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+        @include screen('mobile') {
+            float: none;
+            &>a {
+                width: 100% !important;
+                border-bottom: none;
+            }
+            &.active>a {
+                border-color: #bbb;
+            }
+        }
+        &>a {
+            display: block;
+            padding: 16px 0 14px;
+            text-align: center;
+            background-color: #aaa;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.25em;
+            @include box-sizing;
+            &:hover {
+                background: $secondaryColor;
+            }
+            &:focus {
+                background-color: $color-orange;
+                box-shadow: none;
+            }
+        }
+    }
+}
+//多組 可設定差異
+.example-2 {
+    .tabItem>a:hover {
+        background: $secondaryColor;
+    }
+    .tabItem.active>a {
+        background: $secondaryColor;
+    }
+}
+// 顯示content
+.active+.tabContent {
+    display: block;
+}
+.tabContent {
+    position: absolute;
+    top: auto;
+    left: 0;
+    right: 0;
+    clear: both;
+    padding: 30px 20px;
+    display: none;
+    @include screen('mobile') {
+        position: static;
+    }
+    ul {
+        @include li-reset;
+    }
+    li {
+        margin: 0 0 .5em 0;
+        padding: 0;
+        line-height: 1.6em;
+        border-bottom: 1px #CCC dashed;
+        @include screen('mobile') {
+            @include text-overflow();
+        }
+        a {
+            @include aSetting_nocolor;
+        }
+        time {
+            display: inline-block;
+            margin: 0 0 0 1em;
+            font-size: .813em;
+            color: #666;
+        }
+    }
+}
+// 活動梯次
+.activity_ladder {
+    margin: 0 auto;
+    &>.tabItem {
+        &.active>a {
+            background-color: $color-orange;
+            color: #FFF;
+            position: relative;
+            &:before {
+                content: '';
+                border: 10px solid $color-orange;
+                border-color: $color-orange transparent transparent transparent;
+                position: absolute;
+                bottom: -20px;
+                left: 48%;
+            }
+        }
+    }
+    .tabContent {
+        padding: 10px 0 !important;
+        @include box-sizing;
+        .sort {
+            text-align: center;
+            padding: 2em 1.3em 0.7em 1.3em;
+            background-color: lighten($secondaryColor, 20);
+            border-radius: 5px;
+            @include box-sizing;
+            ul {
+                text-align: center;
+                li {
+                    display: inline-block;
+                    border: none;
+                    a {
+                        padding: .7em 1em;
+                        display: block;
+                        background-color: $secondaryColor;
+                        color: #fff;
+                        border-radius: 3px;
+                        &:hover{
+                            background-color: darken($secondaryColor, 10);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,498 @@
+.lp {
+    table {
+        td {
+            a {
+                @include aSetting_nocolor;
+                color: $secondaryColor;
+            }
+            &.date {
+                text-align: center;
+                color: #666;
+                @include screen('mobile') {
+                    text-align: left;
+                }
+            }
+            &.num {
+                text-align: center;
+                color: #333;
+                @include screen('mobile') {
+                    text-align: left;
+                }
+            }
+        }
+    }
+    .list {
+        &>ul, ol {
+            list-style-type: none;
+            padding: 0;
+            border-top: 5px solid $secondaryColor;
+            &>li {
+                padding: 1em 0;
+                border-bottom: 1px solid #999   ;
+                position: relative;
+                &:hover {
+                    background-color: #fff6d2;
+                }
+                &:nth-child(even) {
+                    background-color: #eee;
+                    &:hover {
+                        background-color: #fff6d2;
+                    }
+                }
+                .tag {
+                    margin-left: 2em;
+                }
+                &>a {
+                    display: block;
+                    padding-left: 2em;
+                    position: relative;
+                    line-height: 1.45em;
+                    color: $color-word;
+                    margin-right: 220px;
+                    @include screen('mobile') {
+                        margin: 0;
+                        display: blcok;
+                        margin-bottom: 5px;
+                    }
+                    &:hover {
+                        color: $aHover;
+                    }
+                    .num {
+                        width: 1.5em;
+                        text-align: right;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 1.5em;
+                        border-radius: 50%;
+                        background-color: $secondaryColor;
+                        color: #fff;
+                        text-align: center;
+                        // &:after {
+                        //     content: ".";
+                        //     display: inline-block;
+                        // }
+                    }
+                }
+                span.dept {
+                    position: absolute;
+                    right: 100px;
+                    top: .9em;
+                    color: #666;
+                    padding: 5px 10px;
+                    background-color: #dbdbdb;
+                    color: #333;
+                    border-radius: 50px;
+                    font-size: 0.938em;
+                    @include screen("mobile") {
+                        display: block;
+                        position: relative;
+                        right: auto;
+                        top: auto;
+                        left: 2em;
+                        margin-right: 5px;
+                        padding: 2px 10px;
+                        display: inline-block;
+                    }
+                }
+                time {
+                    position: absolute;
+                    right: 0;
+                    top: 1em;
+                    width: 100px;
+                    text-align: right;
+                    color: #666;
+                    font-size: .938em;
+                    @include screen('mobile') {
+                        position: relative;
+                        top: 0;
+                        right: 0;
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+}
+// 常見問題
+.qa_table {
+    td {
+        border-bottom: 2px solid #ccc;
+        a {
+            color: $color-red !important;
+            text-decoration: underline !important;
+            &:hover {
+                text-decoration: none !important;
+            }
+        }
+        p {
+            color: #333;
+            line-height: 1.7em;
+            margin: 0 0 10px;
+            padding: 0;
+        }
+        .question {
+            position: relative;
+            padding-left: 50px;
+            padding-bottom: 10px;
+            padding-top: 2px;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed #ccc;
+            &:before {
+                content: 'Q:';
+                font-family: Helvetica;
+                font-size: 1.75em;
+                position: absolute;
+                left: 0;
+                top: 0px;
+                color: $secondaryColor;
+                font-weight: 700;
+            }
+        }
+        .answer {
+            position: relative;
+            padding-left: 50px;
+            padding-top: 2px;
+            &:before {
+                content: 'A:';
+                font-family: Helvetica;
+                font-size: 1.75em;
+                position: absolute;
+                left: 0;
+                top: 0px;
+                color: $color-orange;
+                font-weight: 700;
+            }
+        }
+    }
+}
+// 
+.explain {
+    overflow: hidden;
+    margin-bottom: 10px;
+    .content {
+        color: #000;
+        // background-color: darken($contentbgcolor, 5);
+        background-color: lighten($color-yellow, 30);
+        padding: 1.5em;
+        line-height: 1.7em;
+        max-height: 115px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 3px;
+        &:before {
+            content: '';
+                width: 100%;
+                height: 100px;
+                background: rgb(242, 239, 230);
+                background: linear-gradient(0deg, rgba(242, 239, 230, 1) 0%, rgba(242, 239, 230, 0) 100%);
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                border-radius: 10px;
+        }
+        &.open {
+            max-height: 100%;
+            padding: 1.5em;
+            &:before {
+                content: '';
+                width: 100%;
+                height: auto;
+                @include gradient($contentbgcolor, $contentbgcolor, vertical);
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+        }
+        &.little_data {
+            padding: 1em 1.5em;
+            height: auto;
+            &:before {
+                content: '';
+                width: 100%;
+                height: auto;
+                @include gradient($contentbgcolor, $contentbgcolor, vertical);
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+        }
+    }
+    .show_btn, .hide_btn {
+        background-color: darken($color-yellow, 5) !important;
+        border: 1px solid darken($color-yellow, 5) !important;
+        color: #fff;
+        border-radius: 50px;
+        padding: 2px 15px 2px 30px;
+        clear: both;
+        float: right;
+        position: relative;
+        margin-top: 10px;
+        margin-right: 0;
+        font-size: .938em;
+        z-index: 9;
+        &:before {
+            content: '';
+            border: 2px solid #fff;
+            width: 5px;
+            height: 5px;
+            border-color: transparent #fff #fff transparent;
+            position: absolute;
+            left: 15px;
+            top: 6px;
+            transform: rotate(45deg);
+            transition: .5s;
+        }
+    }
+    .hide_btn {
+        display: none;
+        &:before {
+            transform: rotate(-135deg);
+            top: 12px
+        }
+    }
+    &.permanent {
+        margin-bottom: 25px;
+        .content {
+            height: auto;
+            max-height: 100%;
+            &:before {
+                position: relative;
+                height: auto;
+                background-color: transparent;
+            }
+        }
+    }
+}
+.album {
+    margin: 1em auto;
+    ul {
+        @include li-reset;
+        li {
+            @include make_col(3, 1);
+            overflow: visible;
+            .thumbnail {
+                width: 100%;
+                max-width: 90%;
+                margin: 0 auto 1em;
+            }
+        }
+    }
+}
+//公告日期
+.announcement_date {
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 25px;
+    &:before {
+        content: '';
+        width: 5px;
+        height: 5px;
+        position: absolute;
+        left: 0;
+        top: 2px;
+        background-color: #fff;
+        border-radius: 50%;
+        border: 7px solid $secondaryColor;
+    }
+}
+//報名紀錄說明
+.apply_explain {
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 25px;
+    font-size: 1.125em;
+    &:before {
+        content: '';
+        width: 5px;
+        height: 5px;
+        position: absolute;
+        left: 0;
+        top: 2px;
+        background-color: #fff;
+        border-radius: 50%;
+        border: 7px solid $secondaryColor;
+    }
+    em {
+        font-style: normal;
+        color: $color-red;
+        padding: 0 .5em;
+    }
+}
+// 活動table
+.activity_Tb {
+    margin-bottom: 40px;
+}
+// 未報到
+.not_reported {
+    text-align: center;
+    font-size: 1.5em;
+    margin: 1em 0;
+    line-height: 1.7em;
+    @media(max-width: 380px){
+
+    }
+    em {
+        color: #fff;
+        font-size: 1em;
+        font-weight: 700;
+        background-color: #ff3e4d;
+        font-style: normal;
+        padding: 5px 10px;
+        border-radius: 50%;
+        margin-left: 10px;
+        // font-family: 'Noto Serif TC', serif;
+    }
+}
+// search_block 查詢年度
+.search_block {
+    margin-bottom: 15px;
+    padding: 8px 20px 5px;
+    border-radius: 3px;
+    background-color: #ccc;
+    display: inline-block;
+    color: #000;
+    select {
+        width: auto;
+    }
+    .btn {
+        margin: 0;
+        padding: .5em 0 .4em;
+        vertical-align: top;
+    }
+    .btn-green {
+        border: 1px solid $secondaryColor !important;
+        background-color: $secondaryColor !important;
+        &:hover, &:focus {
+            border: 1px solid darken($secondaryColor, 10) !important;
+            background-color: darken($secondaryColor, 10) !important;
+        }
+    }
+}
+//total總計繳費
+.total {
+    margin: 15px 0;
+    text-align: right;
+    color: $color-red;
+    font-size: 1.25em;
+    font-weight: 500;
+    @include screen('mobile'){
+         text-align:center;
+    }
+    @media(max-width: 380px) {
+        font-size: 1.125em;
+        margin: 0 0 25px 0;
+    }
+}
+// 繳費方式
+.payment_method {
+    padding: 45px 25px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 3px;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 3px;
+    .explainblock {
+        text-align: center;
+        font-size: 1.25em;
+        margin-bottom: 20px;
+        line-height: 1.6em;
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+        li {
+            float: left;
+            list-style: none;
+            width: 22%;
+            margin: 0 1.5%;
+            @include screen('mobile') {
+                width: 45%;
+                margin: 0 2.5% 1.25%;
+            }
+            @media(max-width: 380px) {
+                width: 100%;
+                margin: 0 0 1.25%;
+            }
+            label {
+                padding: 20px;
+                display: block;
+                background-color: $secondaryColor;
+                color: #fff;
+                font-size: 1.125em;
+                cursor: pointer;
+                text-align: center;
+                border-radius: 3px;
+                input[type="radio"] {
+                    display: block;
+                    text-align: center;
+                    margin: 0 auto 10px;
+                }
+                &:hover {
+                    background-color: darken($secondaryColor, 10);
+                }
+            }
+            img {
+                display: block;
+                width: 75px;
+                margin: 10px auto 15px;
+            }
+        }
+    }
+}
+// 繳費資訊
+.payment_information {
+    padding: 35px 25px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 3px;
+    overflow: hidden;
+    border-radius: 3px;
+    font-size: 1.125em;
+    ul{
+        li{
+            margin-bottom: 5px;
+        }
+    }
+}
+// 手機版才出現的按鈕
+.visible_xs_btn{
+    display: none;
+
+    @include screen('xs_mobile'){
+        display: block;
+         margin-bottom: 10px;
+         .btn{
+                padding: .2em 1em;
+         }
+    }
+}
+// 手機取消標題
+.mobile_none{
+    &:before{
+        content: '';
+        display: none!important;
+    }
+    &:after{
+        content: '';
+        display: none;
+    }
+}
+
+// 文件下載
+.file_upload{
+    background-color: #fff;
+    padding:40px 40px 20px 40px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    border: 1px dashed  #666;
+    @include screen('xs_mobile'){
+        padding:20px;
+    }
+      
+    .btn_grp{
+        padding:1em 0 0;
+        margin-bottom: 0;
+    }
+}

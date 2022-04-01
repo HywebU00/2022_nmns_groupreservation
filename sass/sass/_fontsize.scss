@@ -1,0 +1,106 @@
+.font_size {
+    overflow: hidden;
+    display: inline-block;
+    text-align: center;
+    position: absolute;
+    right: 15px;
+    top: 0px;
+    display: block;
+    @include screen('mobile') {
+        position: relative;
+        top: auto;
+        right: auto;
+        display: none;
+    }
+    span {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: .938em;
+        color: #666;
+    }
+    ul {
+        display: inline-block;
+        vertical-align: middle;
+        @include li-reset;
+        li {
+            width: 40px;
+            height: 40px;
+            font-size: 1em;
+            float: left;
+            display: block;
+            margin: 0 .2em;
+            a {
+                display: block;
+                text-align: center;
+                // line-height: 40px;
+                padding: .5em 0 .5em;
+                color: #333;
+                &:hover, &:focus {
+                    color: $aHover;
+                }
+                &:focus {
+                    box-shadow: none;
+                }
+                &.active {
+                    color: $color-blue;
+                    &:hover, &:focus {
+                        color: $color-blue;
+                    }
+                }
+                &.small {
+                    font-size: .938em;
+                }
+                &.large {
+                    font-size: 1.125em;
+                    margin-top: -2px;
+                }
+            }
+        }
+    }
+    @include screen('mobile') {
+        ul {
+            li {
+                float: none;
+                display: inline-block;
+                width: 70px;
+                height: 35px;
+                @include box-sizing;
+                a {
+                    padding: .3em .5em;
+                    border: 1px solid #313131;
+                    border-radius: 3px;
+                    &.large {
+                        font-size: 1.125em;
+                        margin-top: 0;
+                    }
+                    &:hover, &:focus {
+                        color: #333;
+                        background-color: $lightColor;
+                    }
+                    &.active {
+                        color: #333;
+                        &:hover, &:focus {
+                            color:#333;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.large_size{
+    .Popular_activities_block{
+        .popular_activities {
+            .activity_block{
+                h3{
+                    line-height: 1.4em;
+                }
+                .content{
+                    p{
+                        line-height: 1.4em;
+                    }
+                }
+            }
+        }
+    }
+}

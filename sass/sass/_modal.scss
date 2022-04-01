@@ -1,0 +1,88 @@
+.modal {
+    position: fixed;
+    display: none;
+    width: 400px;
+    height: 350px;
+    background: #FFF;
+    z-index: 99999999;
+    top: 5%;
+    left: 50%;
+    margin-left: -200px;
+    padding: 2em 1em 3em;
+    @include box-sizing;
+    border-radius: 8px;
+    box-shadow: 1px 1px 15px RGBA(0, 0, 0, .5);
+    animation: scaleUp .5s ease-out;
+    @include screen('xs_mobile') {
+        width: 100%;
+        height: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        border-radius: 0;
+    }
+    .content {
+        overflow-y: auto;
+        height: 80%;
+
+        // 表單
+        .form_grid{
+            &:first-child{
+                border-top:none;
+            }
+            .form_title{
+                width: 100%;
+            }
+            .form_content{
+                width: 100%;
+            }
+        }
+    }
+    h2 {
+        border-bottom: 2px solid $secondaryColor;
+        padding-bottom: .5em;
+        color: $secondaryColor;
+    }
+    .close {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 35px !important;
+        min-width: auto;
+        height: 35px;
+        font-size: 0em;
+        border: none;
+        display: block;
+        padding: 0;
+        background: url(../images/basic/icon_close.svg) no-repeat center center;
+        background-size: 20px;
+        background-color: #666 !important;
+        border: 1px solid #666 !important;
+        border-radius: 50%;
+        &:hover, &:focus {
+            cursor: pointer;
+        }
+    }
+}
+@keyframes scaleUp {
+    0% {
+        transform: scale(1) translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1) translateY(0px);
+        opacity: 1;
+    }
+}
+.modal_overlay {
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: RGBA(0, 0, 0, .5);
+    z-index: 99999998;
+}

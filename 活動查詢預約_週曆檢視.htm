@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="zh-Hant" class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>國立自然科學博物館 教育活動團體預約</title>
+    <!--HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries [if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <!-- slick css-->
+    <link rel="stylesheet" type="text/css" href="vendor/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="vendor/slick/slick-theme.css" />
+    <!-- 月曆 -->
+    <link rel="stylesheet" type="text/css" href="vendor/pg_calendar/css/pignose.calendar.min.css" />
+    <!-- 燈箱facybox -->
+    <link rel="stylesheet" type="text/css" href="vendor/fancybox/jquery.fancybox.min.css">
+    <!-- hyUI css -->
+    <link rel="stylesheet" href="css/hyui.css">
+    <!-- favicon -->
+    <link href="images/favicon.png" rel="icon" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&family=Open+Sans:wght@600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- 直接跳主內容區 -->
+    <a class="goCenter" href="#center" tabindex="1">按Enter到主內容區</a>
+    <!-- wrapper Start -->
+    <div class="wrapper">
+        <!-- header Start -->
+        <header class="header">
+            <div class="container">
+                <a class="accesskey" href="#aU" id="aU" accesskey="U" title="網站標題" tabindex="2">:::</a>
+                <!-- navigation Start -->
+                <nav class="navigation">
+                    <!-- 一組ul預設靠右 -->
+                    <!-- 兩組ul已寫JQ靠左靠右 -->
+                    <ul>
+                        <li><a href="#">常見問答</a></li>
+                        <li><a href="#">網站導覽</a></li>
+                        <li><a href="#">科博館首頁</a></li>
+                    </ul>
+                </nav>
+                <div class="font_size">
+                    <ul>
+                        <li><a href="#" class="medium">正常</a></li>
+                        <li><a href="#" class="large">放大</a></li>
+                    </ul>
+                </div>
+                <!-- navigation End -->
+                <h1>
+                    <a href="index.htm"><img src="images/logo.svg" alt="國立自然科學博物館" /><span>教育活動團體預約</span>
+                    </a>
+                </h1>
+                <!-- 會員專區 -->
+                <div class="member_block">
+                    <h2>會員專區</h2>
+                    <div class="content">
+                        <div class="name">劉佳淇<em>您好</em></div><input type="button" name="" value="登出" class="signout_btn">
+                        <div class="button_block">
+                            <ul>
+                                <li><a href="#">查詢(取消)報名</a></li>
+                                <li><a href="#">代表人資料維護</a></li>
+                                <li><a href="#">團體資料維護</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- noscript -->
+                <noscript> 您的瀏覽器不支援JavaScript語法，JavaScript語法並不影響內容的陳述。您可使用按鍵盤上的Ctrl鍵+ (+)鍵放大/(-)鍵縮小來改變字型大小；回到上一頁可使用瀏覽器提供的 Alt+左方向鍵(←) 快速鍵功能；列印可使用瀏覽器提供的(Ctrl+P)功能。您的瀏覽器，不支援script語法，若您的瀏覽器無法支援請點選此超連結 <a href="#">網站導覽</a>
+                </noscript>
+            </div>
+        </header>
+        <!-- header End -->
+        <!-- main Start -->
+        <div id="center" class="main innerpage">
+            <!-- 插畫背景區塊  start-->
+            <section class="col-12 Headline_block full">
+                <div class="container">
+                    <div class="col"></div>
+                </div>
+            </section>
+            <!-- 插畫背景區塊  end -->
+            <!-- 內頁新增一個classname-->
+            <div class="container">
+                <a class="accesskey" href="#aC" id="aC" accesskey="C" title="主要內容區">:::</a>
+                <!-- breadcrumb路徑 -->
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="#">首頁</a></li>
+                        <li>活動查詢預約</li>
+                    </ul>
+                </div>
+                <!-- function功能區塊 -->
+                <div class="function">
+                    <ul>
+                        <li class="icon_back"><a href="#">回上一頁</a></li>
+                    </ul>
+                </div>
+                <!-- h2節點 -->
+                <h2 class="title">活動查詢預約</h2>
+                <!-- SP start -->
+                <section class="sp">
+                    <!-- 活動梯次檢視 start -->
+                    <h3 class="title"><span>週曆檢視</span></h3>
+                    <!-- 條件及月曆 start -->
+                    <div class="gallery_data_block">
+                        <!-- 條件篩選出 -->
+                        <div class="conditional_filter_group">
+                            <div class="condition_block">
+                                <label for="selectSample">依園區</label>
+                                <select name="" id="selectSample">
+                                    <option value="">本館</option>
+                                    <option value="">921地震教育園區</option>
+                                    <option value="">鳳凰谷鳥園生態園區</option>
+                                    <option value="">車龍埔斷層保存園區</option>
+                                </select>
+                            </div>
+                            <div class="condition_block">
+                                <label for="selectSample">依地點</label>
+                                <div class="select_list_block">
+                                    <select id="test">
+                                        <option value="1">American Black Bear</option>
+                                        <option value="2">Asiatic Black Bear</option>
+                                        <option value="3">Brown Bear</option>
+                                        <option value="4">Giant Panda</option>
+                                        <option value="5">Sloth Bear</option>
+                                        <option value="6">Sun Bear</option>
+                                        <option value="7">Polar Bear</option>
+                                        <option value="8">Spectacled Bear</option>
+                                        <option value="9">Spectacled Bear</option>
+                                        <option value="10">Spectacled Bear</option>
+                                        <option value="11">Spectacled Bear</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 條件及月曆 end -->
+                    <!-- 年月份 start -->
+                    <div class="year_month_block">
+                        <div class="prev_btn"><a href="#"><img src="images/icon_prev_btn.png" alt="上一月"></a></div>
+                        <div class="year_month">
+                            <div class="date_range"><span>2022</span>年<span>2</span>月<span>14</span>日 </div>
+                            <div class="to">－</div>
+                            <div class="date_range"><span>2022</span>年<span>2</span>月<span>20</span>日</div>
+                        </div>
+                        <div class="next_btn"><a href="#"><img src="images/icon_next_btn.png" alt="下一月"></a></div>
+                    </div>
+                    <!-- 年月份 end -->
+                    <!-- 相關功能 start-->
+                    <div class="related_functions">
+                        <div class="functions_leftblock">
+                            <label><input type="checkbox">隱藏已額滿時段</label>
+                        </div>
+                        <div class="functions_rightblock">
+                            <!-- 檢視本週末link -->
+                            <div class="linkblock"><a href="#">檢視本週末活動</a></div>
+                        </div>
+                    </div>
+                    <!-- 相關功能 end-->
+                    <!-- 表格 start-->
+                    <div class="table_list calendar_Tb">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>週一</th>
+                                    <th>週二</th>
+                                    <th>週三</th>
+                                    <th>週四</th>
+                                    <th>週五</th>
+                                    <th class="weekend">週六</th>
+                                    <th class="weekend">週日</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="otherweek">
+                                        <!-- 非當週天數，請加class="otherweek"，手機版的時候會隱藏 -->
+                                        <div class="num_date">7</div>
+                                    </td>
+                                    <td class="otherweek">
+                                        <div class="num_date">8</div>
+                                    </td>
+                                    <td>
+                                        <div class="num_date">9</div>
+                                        <!-- 各館活動 start -->
+                                        <div class="gallery_activity">
+                                            <div class="gallery gallery_a disabled">
+                                                <a href="javascript:;">
+                                                    <span class="title">植物園解説</span>
+                                                    <span class="time">09:00～10:00</span>
+                                                    <span class="narrator">額滿</span>
+                                                </a>
+                                            </div>
+                                            <div class="gallery gallery_b">
+                                                <a href="javascript:;" data-fancybox data-src="#modal01">
+                                                    <span class="title">921斷層剖面解說</span>
+                                                    <span class="time">09:30～10:30</span>
+                                                    <span class="narrator">剩餘可預約<em>2</em>位解說員</span>
+                                                </a>
+                                                <!-- 燈箱start -->
+                                                <div class="lightbox_group" style="display: none;" id="modal01">
+                                                    <h2>會員登入</h2>
+                                                    <div class="content">
+                                                        <p>請先登入會員方可繼續進行預約作業，沒有帳號？<a href="#">立即註冊</a></p>
+                                                        <div class="formblock">
+                                                            <div class="account_number"><input type="text" name="" value="" placeholder="請輸入帳號" class="number"></div>
+                                                            <div class="password_block"><input type="text" name="" value="" placeholder="請輸入圖形驗證碼" class="password"><img src="images/basic/captcha.gif" alt=""></div>
+                                                            <div class="btn_grp">
+                                                                <button class="btn btn-lg btn-submit" type="button">立即登入</button>
+                                                                <button class="btn btn-lg " type="button" data-fancybox-close>取消</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- 燈箱end -->
+                                            </div>
+                                            <div class="gallery gallery_a">
+                                                <a href="javascript:;" data-fancybox data-src="#modal02">
+                                                    <span class="title">植物園解説</span>
+                                                    <span class="time">09:00～10:30</span>
+                                                    <span class="narrator">剩餘可預約<em>3</em>位解說員</span>
+                                                </a>
+                                                <!-- 燈箱start -->
+                                                <div class="lightbox_group" style="display: none;" id="modal02">
+                                                    <h2>活動預約</h2>
+                                                    <div class="content">
+                                                        <form action="" class="form_grid">
+                                                            <div class="form_grp">
+                                                                <label for="" class="form_title">預約帳號：</label>
+                                                                <div class="form_content"><span class="word_blue">凌網測試</span></div>
+                                                            </div>
+                                                            <div class="form_grp">
+                                                                <label for="" class="form_title">預約團體：</label>
+                                                                <div class="form_content">
+                                                                    <select name="" id="selectSample">
+                                                                        <option value="">凌網科技</option>
+                                                                        <option value="">選項二</option>
+                                                                        <option value="">選項三</option>
+                                                                        <option value="">選項四</option>
+                                                                    </select><span><a href="#">新增團體資訊</a></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form_grp">
+                                                                <label for="" class="form_title">預約團體：</label>
+                                                                <div class="form_content">
+                                                                    <select name="" id="selectSample">
+                                                                        <option value="">請選擇人數</option>
+                                                                        <option value="">1</option>
+                                                                        <option value="">2</option>
+                                                                        <option value="">3</option>
+                                                                    </select>
+                                                                    <select name="" id="selectSample">
+                                                                        <option value="">請選擇年齡層</option>
+                                                                        <option value="">1</option>
+                                                                        <option value="">2</option>
+                                                                        <option value="">3</option>
+                                                                    </select>
+                                                                    <input type="text" name="" value="" placeholder="幾年幾班">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form_grp">
+                                                                <div class="form_content">
+                                                                    <textarea name="" id="" cols="30" rows="10" placeholder="例如：共計幾班、共計幾車....。"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form_grp">
+                                                                <label for="" class="form_title">預約地點：</label>
+                                                                <div class="form_content"> 植物園解說 - <select name="" id="selectSample">
+                                                                        <option value="">熱帶雨林溫室</option>
+                                                                        <option value="">選項一</option>
+                                                                        <option value="">選項二</option>
+                                                                        <option value="">選項三</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form_grp">
+                                                                <label for="" class="form_title">預約時間：</label>
+                                                                <div class="form_content">2022/02/17(四)10:00-11:00 </div>
+                                                            </div>
+                                                            <div class="form_grp">
+                                                                <label for="" class="form_title">剩餘解說人員：</label>
+                                                                <div class="form_content">
+                                                                    <em>3</em>位 </div>
+                                                            </div>
+                                                            <div class="form_grp">
+                                                                <div class="form_content">
+                                                                    <ol>
+                                                                        <li>預約解說之單位人數至少15人，1位解說員以20人為單位上限，同時段最多3個單位共60人</li>
+                                                                        <li>單一主題展示區，同時段最多接受預約兩位解說人員。若人數無法選取時，表示該主題展示區已被預約；人數若超過20人，需另加選一其他主題展示區</li>
+                                                                    </ol>
+                                                                </div>
+                                                            </div>
+                                                            <div class="btn_grp">
+                                                                <button class="btn btn-lg btn-submit" type="button">送出預約</button>
+                                                                <button class="btn btn-lg " type="button" data-fancybox-close>取消</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <!-- 燈箱end -->
+                                            </div>
+                                            <div class="gallery gallery_b">
+                                                <a href="javascript:;" data-fancybox data-src="#modal03">
+                                                    <span class="title">921斷層剖面解說</span>
+                                                    <span class="time">09:30～10:30</span>
+                                                    <span class="narrator">剩餘可預約<em>2</em>位解說員</span>
+                                                </a>
+                                                <!-- 燈箱start -->
+                                                <div class="lightbox_group" style="display: none;" id="modal03">
+                                                    <h2>預約成功</h2>
+                                                    <div class="content">
+                                                        <p>預約成功。<a href="#">列印預約明細</a></p>
+                                                        <form action="" class="form_grid">
+                                                            <div class="form_grp">
+                                                                <label for="" class="form_title">預約帳號：</label>
+                                                                <div class="form_content"><span class="word_blue">劉佳淇</span></div>
+                                                            </div>
+                                                            <div class="form_grp">
+                                                                <label for="" class="form_title">預約團體：</label>
+                                                                <div class="form_content"> 凌網測試 </div>
+                                                            </div>
+                                                            <div class="form_grp">
+                                                                <label for="" class="form_title">預約人數：</label>
+                                                                <div class="form_content"> 20人/其他 </div>
+                                                            </div>
+                                                            <div class="form_grp">
+                                                                <label for="" class="form_title">預約地點：</label>
+                                                                <div class="form_content"> 植物園解說 - 熱帶雨林溫室 </div>
+                                                            </div>
+                                                            <div class="form_grp">
+                                                                <label for="" class="form_title">預約時間：</label>
+                                                                <div class="form_content">2022/02/17(四)10:00-11:00 </div>
+                                                            </div>
+                                                            <div class="form_grp">
+                                                                <div class="form_content">
+                                                                    <p>請注意！預約場次時間過10分鐘仍未報到者，視同放棄該廠預約；且若未來電告，將以「<span class="word_red">未報到</span>」紀錄之</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="btn_grp">
+                                                                <button class="btn btn-lg btn-submit" type="button">我的預約清單</button>
+                                                                <button class="btn btn-lg " type="button" data-fancybox-close>關閉</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <!-- 燈箱end -->
+                                            </div>
+                                            <div class="gallery gallery_a">
+                                                <a href="javascript:;">
+                                                    <span class="title">植物園解説</span>
+                                                    <span class="time">09:00～10:00</span>
+                                                    <span class="narrator">剩餘可預約<em>4</em>位解說員</span>
+                                                </a>
+                                            </div>
+                                            <!--  -->
+                                        </div>
+                                        <!-- 各館活動 end -->
+                                    </td>
+                                    <td>
+                                        <div class="num_date">10</div>
+                                        <!-- 各館活動 start -->
+                                        <div class="gallery_activity">
+                                            <div class="gallery gallery_c">
+                                                <a href="javascript:;">
+                                                    <span class="title">植物園解説</span>
+                                                    <span class="time">09:00～10:00</span>
+                                                    <span class="narrator">剩餘可預約<em>4</em>位解說員</span>
+                                                </a>
+                                            </div>
+                                            <div class="gallery gallery_d">
+                                                <a href="javascript:;">
+                                                    <span class="title">921斷層剖面解說</span>
+                                                    <span class="time">09:30～10:30</span>
+                                                    <span class="narrator">剩餘可預約<em>4</em>位解說員</span>
+                                                </a>
+                                            </div>
+                                            <div class="gallery gallery_c">
+                                                <a href="javascript:;">
+                                                    <span class="title">植物園解説</span>
+                                                    <span class="time">09:00～10:30</span>
+                                                    <span class="narrator">剩餘可預約<em>4</em>位解說員</span>
+                                                </a>
+                                            </div>
+                                            <!--  -->
+                                        </div>
+                                        <!-- 各館活動 end -->
+                                    </td>
+                                    <td>
+                                        <div class="num_date">11</div>
+                                        <!-- 各館活動 start -->
+                                        <div class="gallery_activity">
+                                            <div class="gallery gallery_a">
+                                                <a href="javascript:;">
+                                                    <span class="title">植物園解説</span>
+                                                    <span class="time">09:00～10:00</span>
+                                                    <span class="narrator">剩餘可預約<em>4</em>位解說員</span>
+                                                </a>
+                                            </div>
+                                            <div class="gallery gallery_b">
+                                                <a href="javascript:;">
+                                                    <span class="title">植物園解説</span>
+                                                    <span class="time">09:00～10:00</span>
+                                                    <span class="narrator">剩餘可預約<em>4</em>位解說員</span>
+                                                </a>
+                                            </div>
+                                            <!--  -->
+                                        </div>
+                                        <!-- 各館活動 end -->
+                                    </td>
+                                    <td>
+                                        <div class="num_date">12</div>
+                                        <!-- 各館活動 start -->
+                                        <div class="gallery_activity">
+                                            <div class="gallery gallery_c">
+                                                <a href="javascript:;">
+                                                    <span class="title">植物園解説</span>
+                                                    <span class="time">09:00～10:00</span>
+                                                    <span class="narrator">剩餘可預約<em>4</em>位解說員</span>
+                                                </a>
+                                            </div>
+                                            <div class="gallery gallery_d">
+                                                <a href="javascript:;">
+                                                    <span class="title">921斷層剖面解說</span>
+                                                    <span class="time">09:30～10:30</span>
+                                                    <span class="narrator">剩餘可預約<em>4</em>位解說員</span>
+                                                </a>
+                                            </div>
+                                            <div class="gallery gallery_c">
+                                                <a href="javascript:;">
+                                                    <span class="title">植物園解説</span>
+                                                    <span class="time">09:00～10:30</span>
+                                                    <span class="narrator">剩餘可預約<em>4</em>位解說員</span>
+                                                </a>
+                                            </div>
+                                            <div class="gallery gallery_d">
+                                                <a href="javascript:;">
+                                                    <span class="title">921斷層剖面解說</span>
+                                                    <span class="time">09:30～10:30</span>
+                                                    <span class="narrator">剩餘可預約<em>4</em>位解說員</span>
+                                                </a>
+                                            </div>
+                                            <!--  -->
+                                        </div>
+                                        <!-- 各館活動 end -->
+                                    </td>
+                                    <td>
+                                        <div class="num_date">13</div>
+                                        <!-- 各館活動 start -->
+                                        <div class="gallery_activity">
+                                            <div class="gallery gallery_a">
+                                                <a href="javascript:;">
+                                                    <span class="title">植物園解説</span>
+                                                    <span class="time">09:00～10:00</span>
+                                                    <span class="narrator">剩餘可預約<em>4</em>位解說員</span>
+                                                </a>
+                                            </div>
+                                            <div class="gallery gallery_b">
+                                                <a href="javascript:;">
+                                                    <span class="title">921斷層剖面解說</span>
+                                                    <span class="time">09:30～10:30</span>
+                                                    <span class="narrator">剩餘可預約<em>4</em>位解說員</span>
+                                                </a>
+                                            </div>
+                                            <div class="gallery gallery_a">
+                                                <a href="javascript:;">
+                                                    <span class="title">植物園解説</span>
+                                                    <span class="time">09:00～10:30</span>
+                                                    <span class="narrator">剩餘可預約<em>4</em>位解說員</span>
+                                                </a>
+                                            </div>
+                                            <!--  -->
+                                        </div>
+                                        <!-- 各館活動 end -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- 表格 end -->
+                    <!-- 備註 -->
+                    <div class="remark">備註：一週內的活動不提供線上預約，警提供檢視。若有臨時預約需求，請洽 04-23226940 預約專線、確認當日活動與導覽人力</div>
+                </section>
+                <!-- SP End -->
+            </div>
+        </div>
+        <!-- footer Start-->
+        <footer>
+            <div class="container">
+                <a class="accesskey" href="#aZ" id="aZ" accesskey="Z" title="頁尾區">:::</a>
+                <div class="content">
+                    <div class="footer_info">
+                        <p class="Copyright"> 國立自然科學博物館©版權所有</p>
+                        <p> 地址：40453台中市北區館前路一號　<br /> 電話：+886-4-23226940</p>
+                    </div>
+                    <div class="footer_icon">
+                        <span class="counter">瀏覽人次:<em>46476653</em></span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- footer End -->
+    </div>
+    <a href="javascript:;" class="scrollToTop">回頁首</a>
+    <!-- JQ -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- 外掛 plugin js -->
+    <script src="vendor/jquery.easing.min.js"></script><!-- ease -->
+    <script src="vendor/slick/slick.min.js "></script><!-- slick -->
+    <script src="vendor/slick/slick-lightbox.js "></script><!-- slick lightbox -->
+    <script src="vendor/lazyload/lazyload.js"></script><!-- lazyload -->
+    <script src="vendor/picturefill/picturefill.min.js" async></script>
+    <!-- picturefill -->
+    <script src="vendor/scrolltable/jquery.scroltable.min.js"></script><!-- scrolltable -->
+    <!-- 時間表 -->
+    <script src="vendor/schedule/modernizr.min.js"></script>
+    <!-- 月曆 -->
+    <script src="vendor/pg_calendar/js/pignose.calendar.full.js"></script>
+    <!-- 燈箱facybox -->
+    <script src="vendor/fancybox/jquery.fancybox.min.js"></script>
+    <!-- hyUI -->
+    <script src="js/hyui.js"></script>
+    <!-- 客製js -->
+    <script src="js/customize.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,442 @@
+* {
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    &.noscroll {
+        position: static !important;
+        width: 100%;
+        height: 100%;
+        overflow: hidden !important;
+        overflow-y: hidden !important;
+        margin: 0;
+        padding: 0;
+    }
+    background-image: url('../images/main_bg.jpg');
+    background-position: center top;
+    background-repeat: repeat-y;
+}
+// 最外圍預設為100%
+.wrapper {
+    width: 100%;
+    margin: 0px auto;
+    overflow: hidden;
+    @include screen('mobile') {
+        overflow: hidden;
+        overflow-y: auto;
+    }
+}
+// 整體共用container樣式，請注意首頁切版頁面的整齊
+.container {
+    @include gutter(); //gutter 代表左右要留白
+    margin: 0 auto;
+    max-width: $container-max; //請看_variable.scss
+}
+.main {
+    position: relative;
+    margin: 0 auto;
+    padding: 90px 0 30px 0;
+    @include screen('mobile') {
+        padding: 70px 0 0 0;
+    }
+    h2 {
+        line-height: 1.25em;
+    }
+    .accesskey {
+        color: $contentbgcolor;
+    }
+    &:before {
+        content: '';
+        background-image: url('../images/mpbg_leaf_left01.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 297px;
+        height: 232px;
+        position: absolute;
+        left: -60px;
+        top: 545px;
+        z-index: 4;
+        animation-name: leafleft01;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+        @include screen('mobile') {
+            z-index: 1;
+            top: 62px;
+            background-size: 40%;
+            left: -144px;
+            transform: rotate(82deg);
+            animation-name: leafleft01_m;
+        }
+    }
+    @keyframes leafleft01 {
+        from {
+            left: -297px;
+        }
+        to {
+            left: -60px;
+        }
+    }
+    @keyframes leafleft01_m {
+        from {
+            left: -297px;
+        }
+        to {
+            left: -144px;
+        }
+    }
+    &:after {
+        content: '';
+        background-image: url('../images/mpbg_leaf_left03.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 80%;
+        width: 518px;
+        height: 282px;
+        position: absolute;
+        left: -518px;
+        top: 797px;
+        z-index: 3;
+        animation-name: leafleft03;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+        animation-delay: 0.3s;
+        animation-fill-mode: forwards;
+        @include screen('mobile') {
+            top: 190px;
+            z-index: 1;
+            background-size: 30%;
+            transform: rotate(79deg);
+            animation-name: leafleft03_m;
+            left: -518px;
+        }
+    }
+    @keyframes leafleft03 {
+        from {
+            left: -518px;
+        }
+        to {
+            left: -276px;
+        }
+    }
+    @keyframes leafleft03_m {
+        from {
+            left: -518px;
+        }
+        to {
+            left: -265px;
+        }
+    }
+}
+.main {
+    &.small_size {
+        font-size: .938em;
+    }
+    &.large_size {
+        font-size: 1.125em;
+    }
+}
+p {
+    line-height: 1.7em;
+    margin: 0 0 15px 0;
+    // &+p{
+    //     margin
+    // }
+}
+////////////////////////////////////////////////////////////
+// 為了與首頁區隔，請在內頁加上innerpage ClassName
+.innerpage {
+    background-image: url('../images/mpbg01_innerpage.jpg');
+    background-repeat: no-repeat;
+    background-position: center 90px;
+    padding: 400px 0 60px 0;
+    position: relative;
+    @include screen('mobile') {
+        background-position: center 70px;
+    }
+    &:before {
+        background-image: url('../images/mpbg_leaf_left01.png');
+        top: 253px;
+        @include screen('mobile') {
+            z-index: 1;
+            top: 219px;
+            background-size: 40%;
+            left: -144px;
+            transform: rotate(82deg);
+            animation-name: leafleft01_m;
+        }
+    }
+    &:after {
+        background-image: url('../images/mpbg_leaf_left03.png');
+        top: 505px;
+        @include screen('mobile') {
+            top: 345px;
+            z-index: 1;
+            background-size: 30%;
+            transform: rotate(79deg);
+            animation-name: leafleft03_m_in;
+            left: -518px;
+        }
+        @keyframes leafleft03_m_in {
+            from {
+                left: -518px;
+            }
+            to {
+                left: -246px;
+            }
+        }
+    }
+    >.container {
+        @include gutter(); //gutter 代表左右要留白
+    }
+    .Headline_block {
+        position: relative;
+        width: 100%;
+        font-size: 0;
+        &:before {
+            content: '';
+            background-image: url(../images/accordion_mask.png);
+            background-repeat: no-repeat;
+            background-position: center bottom;
+            height: 400px;
+            width: 100%;
+            position: absolute;
+            bottom: auto;
+            left: auto;
+            z-index: 0;
+            top: -144px;
+            pointer-events: none;
+            animation-name: none;
+            @include screen('mobile') {
+                bottom: auto;
+                z-index: 0;
+                background-position: center bottom;
+            }
+        }
+        &:after {
+            content: '';
+            background-image: url('../images/mpbg_leaf_left02.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 341px;
+            height: 178px;
+            position: absolute;
+            left: -341px;
+            top: -21px;
+            z-index: 4;
+            animation-name: leafleft02;
+            animation-duration: 0.5s;
+            animation-iteration-count: 1;
+            animation-delay: 0.7s;
+            animation-fill-mode: forwards;
+            @include screen('mobile') {
+                background-image: url('../images/mpbg_leaf_left02.png');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 40%;
+                transform: rotate(-10deg);
+                width: 341px;
+                height: 178px;
+                position: absolute;
+                right: auto;
+                left: -341px;
+                top: -52px;
+                animation-name: leafleft02_m_in;
+                z-index: 0;
+            }
+            @keyframes leafleft02_m_in {
+                from {
+                    left: -341px;
+                }
+                to {
+                    left: -159px;
+                }
+            }
+        }
+        @keyframes leafleft02 {
+            from {
+                left: -341px;
+            }
+            to {
+                left: -180px;
+            }
+        }
+        .container {
+            position: relative;
+            &:before {
+                content: '';
+                background-image: url('../images/mpbg_bird_left.png');
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 159px;
+                height: 167px;
+                position: absolute;
+                left: -5px;
+                top: -96px;
+                z-index: 5;
+                animation-name: bird01;
+                animation-duration: .5s;
+                animation-iteration-count: 1;
+                animation-delay: 1.3s;
+                animation-fill-mode: forwards;
+                opacity: 0;
+                @include screen('mobile') {
+                    content: '';
+                    background-image: url('../images/mpbg_bird_left.png');
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: 64%;
+                    width: 159px;
+                    height: 167px;
+                    position: absolute;
+                    left: -46px;
+                    top: -193px;
+                    z-index: 3;
+                    animation-name: bird01;
+                    animation-duration: .5s;
+                    animation-iteration-count: 1;
+                    animation-delay: 1.3s;
+                    animation-fill-mode: forwards;
+                    opacity: 0;
+                }
+            }
+            @keyframes bird01 {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            &:after {
+                content: '';
+                background-image: url('../images/mpbg_leaf_right01.png');
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 341px;
+                height: 161px;
+                position: absolute;
+                right: -341px;
+                top: -110px;
+                z-index: 3;
+                animation-name: leafright01;
+                animation-duration: 0.5s;
+                animation-delay: 0.5s;
+                animation-fill-mode: forwards;
+                animation-iteration-count: 1;
+                @include screen('mobile') {
+                    display: none;
+                }
+            }
+            @keyframes leafright01 {
+                from {
+                    right: -341px;
+                }
+                to {
+                    right: -176px;
+                }
+            }
+        }
+        .col {
+            position: relative;
+            &:after {
+                content: '';
+                background-image: url('../images/mpbg_leaf_right02.png');
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 401px;
+                height: 313px;
+                position: absolute;
+                right: -420px;
+                top: -89px;
+                z-index: 3;
+                animation-name: leafright02;
+                animation-duration: 0.5s;
+                animation-delay: 1s;
+                animation-fill-mode: forwards;
+                animation-iteration-count: 1;
+                @include screen('mobile') {
+                    background-image: url('../images/mpbg_leaf_right03_m.png');
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    width: 158px;
+                    height: 66px;
+                    animation-name: leafright03_m_in;
+                    right: -180px;
+                    bottom: -166px;
+                    z-index: 1;
+                    top: auto;
+                }
+            }
+            @keyframes leafright02 {
+                from {
+                    right: -420px;
+                }
+                to {
+                    right: -237px;
+                }
+            }
+            @keyframes leafright03_m_in {
+                from {
+                    right: -180px;
+                }
+                to {
+                    right: -100px;
+                }
+            }
+            &:before {
+                content: '';
+                background-image: url('../images/mpbg_sun.png');
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 96px;
+                height: 96px;
+                position: absolute;
+                right: 25%;
+                top: -32px;
+                transition: .5s;
+                @include screen('mobile') {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+.hidden {
+    display: none;
+}
+.word_green {
+    color: $secondaryColor;
+}
+.word_red {
+    color: $color-red;
+}
+.word_blue {
+    color: $linkColor;
+}
+.hidden {
+    display: none !important;
+}
+@media(min-width: 768px) {
+    .mobile_visible {
+        display: none !important;
+    }
+}
+@include screen('mobile') {
+    .mobile_hidden {
+        display: none !important;
+    }
+    .mobile_visible {
+        display: inline-block !important;
+    }
+}
+@include screen('xs_mobile') {
+    .xs_hidden {
+        display: none !important;
+    }
+}
+.sp, .lp, .cp, .sitemap {
+    z-index: 6;
+    position: relative;
+}

@@ -1,0 +1,186 @@
+footer {
+    @include box-sizing(border-box);
+    @include clearfix;
+    text-align: left;
+    font-size: 1em;
+    padding: 1em 0;
+    background-image: url('../images/footerbg.jpg');
+    background-position: center bottom;
+    background-repeat: repeat-x;
+    height: 450px;
+    position: relative;
+    &:before {
+        content: '';
+        background-image: url('../images/footer_plant01.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 450px;
+        height: 239px;
+        position: absolute;
+        left: -70px;
+        bottom: -2px;
+        transition: .5s;
+        @include screen('tablet'){
+            left: -140px;
+        }
+        @media(max-width: 800px){
+            left: -180px;
+        }
+        @include screen('xs_mobile'){
+            left: -270px;
+        }
+    }
+    &:after {
+        content: '';
+        background-image: url('../images/footer_plant02.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 350px;
+        height: 172px;
+        position: absolute;
+        right: -72px;
+        bottom: -12px;
+        transition: .5s;
+        @include screen('tablet'){
+            right: -210px;
+        }
+    }
+    .container {
+        @include gutter;
+        position: relative;
+        padding-top: 210px;
+        color: #fff;
+        z-index: 10;
+        &:before {
+            content: '';
+            background-image: url('../images/footer_animal.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 176px;
+            height: 159px;
+            position: absolute;
+            left: 12%;
+            top: 20px;
+            transition: .5s;
+            @include screen('mobile'){
+                top: 40px;
+            }
+        }
+        >div {
+            padding-bottom: 1em;
+        }
+    }
+    a {
+        text-decoration: none;
+        color: $primaryColor;
+        &:hover,
+        &:focus {
+            color: darken($primaryColor, 10);
+        }
+    }
+   
+    .footer_logo {
+        @include make-xs-column(0);
+        @include make-sm-column(0);
+        @include make-md-column(0);
+        @include make-lg-column(0);
+        @include gutter();
+    }
+    .footer_info {
+        @include make-xs-column(12);
+        @include make-sm-column(6);
+        @include make-md-column(6);
+        @include make-lg-column(6);
+        @include gutter();
+    }
+    .footer_icon {
+        @include make-xs-column(12);
+        @include make-sm-column(6);
+        @include make-md-column(6);
+        @include make-lg-column(6);
+        @include gutter();
+    }
+     .content{
+       display: flex;
+       justify-content: center; 
+       @include screen('mobile'){
+        flex-wrap: wrap;
+       }
+       
+
+       .footer_info, .footer_icon{
+        flex:none;
+        float:none;
+        clear: both;
+        width:auto;
+        @include screen('mobile'){
+            flex-basis: 100%;
+            width:100%;
+            text-align: center;
+        }
+       }
+    }
+    // 版權連結
+    .footer_link {
+        @include li-reset();
+        @include clearfix();
+        li {
+            float: left;
+            display: block;
+            margin: 0px 5px 5px 0px;
+            a {
+                display: block;
+                padding: .5em 1em;
+                border: 1px solid #fff;
+                border-radius: 3px;
+                color: #FFF;
+                border-radius: 4px;
+                @include transition(all, .3s, ease-out);
+                &:hover,
+                &:focus {
+                    background-color: #000;
+                }
+            }
+        }
+    }
+    p {
+        line-height: 1.65em;
+    }
+    .update,
+    .counter {
+        
+        background-color:#fff;
+        color:#333;
+        padding:10px 25px;
+        border-radius:50px;
+
+        em {
+            font-style: normal;
+           color:#333;
+            padding: 0 .5em;
+        }
+    }
+    .footer_icon {
+         margin-top: 10px;
+        a {
+            display: inline-block;
+            vertical-align: top;
+            position: relative;
+            &:focus {
+                &:after {
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    box-shadow: 0px 0px 0px 1px $aHover inset;
+                    z-index: 99;
+                }
+            }
+        }
+        img {
+            max-width: 120px;
+        }
+    }
+}

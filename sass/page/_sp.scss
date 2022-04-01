@@ -1,0 +1,2399 @@
+// 年月份 月曆 start
+.year_month_block {
+    font-size: 1.625em;
+    text-align: center;
+    margin: 40px 0;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include screen('mobile') {
+        font-size: 1.562em;
+    }
+    @media(max-width: 400px) {
+        font-size: 1.25em;
+    }
+    .year_month {
+        // display: inline-block;
+        // vertical-align: middle;
+        margin: 0 10px 0 10px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        .date_range {
+            display: flex;
+            align-items: center;
+            padding-right: 10px;
+            @include screen('mobile') {
+                flex-basis: 100%;
+                justify-content: center;
+            }
+        }
+        .to {
+            color: #333;
+            padding: 0 10px;
+            @include screen('mobile') {
+                flex-basis: 100%;
+                justify-content: center;
+                padding: 15px 0;
+                transform: rotate(90deg);
+            }
+            @media(max-width: 400px) {
+                padding: 7px 0;
+            }
+        }
+        span {
+            color: #ee4f4b;
+            padding: 0 10px;
+            font-family: 'Merriweather', serif;
+            font-weight: 400;
+            font-size: 1.5em;
+            @media(max-width: 380px) {
+                padding: 0 5px;
+            }
+        }
+    }
+    .prev_btn, .next_btn {
+        // display: inline-block;
+        // vertical-align: middle;
+        a {
+            display: block;
+            width: 40px;
+            height: 40px;
+            background-color: #666;
+            line-height: 40px;
+            border-radius: 50%;
+            &:hover {
+                background-color: #000;
+            }
+            @media(max-width: 380px) {
+                width: 35px;
+                height: 35px;
+            }
+        }
+    }
+}
+.calendar_explain {
+    background-image: url('../images/icon_star.png');
+    background-position: 0 2px;
+    background-repeat: no-repeat;
+    padding-left: 25px;
+    margin-bottom: 10px;
+}
+.people_sort {
+    background-color: #fff;
+    padding: 15px 20px 7px;
+    box-shadow: 0 0 2px #ccc;
+    overflow: hidden;
+    margin-bottom: 20px;
+    text-align: center;
+    // @include screen('mobile'){
+    //  padding: 15px 100px 7px;
+    // }
+    // @include screen('xs_mobile'){
+    //  padding: 15px 30px 7px;
+    // }
+    ul {
+        margin: 0 auto;
+        padding: 0;
+        width: 80%;
+        list-style: none;
+        text-align: left;
+        @include screen('mobile') {
+            width: 90%;
+        }
+        @media(max-width:590px) {
+            width: 95%;
+        }
+        li {
+            display: inline-block;
+            ;
+            width: 105px;
+            margin: 0 4px 8px;
+            padding-left: 20px;
+            position: relative;
+            &:before {
+                content: '';
+                width: 12px;
+                height: 12px;
+                position: absolute;
+                left: 0;
+                top: 5px;
+                background-color: #666;
+            }
+            &.no01 {
+                &:before {
+                    background-color: #00a18b;
+                }
+            }
+            &.no02 {
+                &:before {
+                    background-color: #ff6e35;
+                }
+            }
+            &.no03 {
+                &:before {
+                    background-color: #006ccf;
+                }
+            }
+            &.no04 {
+                &:before {
+                    background-color: #e50022;
+                }
+            }
+            &.no05 {
+                &:before {
+                    background-color: #dda300;
+                }
+            }
+            &.no06 {
+                &:before {
+                    background-color: #0fa6c9;
+                }
+            }
+            &.no07 {
+                &:before {
+                    background-color: #9c2c8a;
+                }
+            }
+            &.no08 {
+                &:before {
+                    background-color: #707070;
+                }
+            }
+            &.no09 {
+                &:before {
+                    background-color: #b38850;
+                }
+            }
+        }
+    }
+}
+// 日曆calendar_Tb
+.calendar_Tb {
+    margin: 0 0 20px;
+    table {
+        word-break: break-all;
+        table-layout: fixed;
+        thead {
+            margin-bottom: 5px;
+        }
+        tbody {
+            border-top: 1px solid #ccc;
+        }
+        tr {
+            background-color: #fff;
+        }
+        tr:hover {
+            background-color: #fff6d2;
+            transition: .2s;
+        }
+        th {
+            background-color: #ddd !important;
+            border: 1px solid #f8f3e4;
+            border-bottom: 5px solid #f8f3e4;
+            color: #333;
+            padding: 0.5em 1em;
+            width: 14.28%;
+            font-size: 1.25em;
+            font-weight: 400;
+            &.weekend {
+                background-color: #f66f62 !important;
+                color: #fff;
+            }
+        }
+        td {
+            position: relative;
+            // min-height: 130px!important;
+            // background-color: #fff !important;
+            border: 1px solid #e5e5e5;
+            padding: 2px;
+            @include screen('mobile') {
+                min-height: 65px;
+                padding: 2px 7px 2px 17% !important;
+            }
+            &:after {
+                content: '';
+                width: 1px;
+                height: 20px;
+                float: left;
+                background-color: #fff;
+                border: none;
+                @include screen('mobile') {
+                    float: none;
+                    height: auto;
+                    background-color: red;
+                }
+            }
+            &:before {
+                position: absolute;
+                // top: .5em;
+                // left: .5em;
+                // padding-right: 10px;
+                // border-right: 1px solid #ccc;
+                // height: 50px;
+                width: 15%;
+                // padding-left:0;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                padding: 5px;
+                background-color: #eee;
+                color: #333;
+                text-align: center;
+                @include box-sizing;
+            }
+            &.otherweek {
+                .num_date {
+                    color: #d5d5d5;
+                }
+                @include screen('mobile') {
+                    display: none;
+                }
+            }
+            &.othermonth {
+                .num_date {
+                    color: #d5d5d5;
+                }
+                @include screen('mobile') {
+                    display: none;
+                }
+            }
+        }
+        .num_date {
+            position: absolute;
+            top: 0px;
+            right: 5px;
+            text-align: right;
+            color: #7a7a7a;
+            font-size: 1.063em;
+            font-weight: bolder;
+            @include screen('mobile') {
+                position: absolute;
+                text-align: center;
+                right: 0;
+                left: 0;
+                top: 30px;
+                width: 15%;
+            }
+        }
+        .gallery_activity {
+            margin: 25px 0 0;
+            text-align: center;
+            @include screen('mobile') {
+                margin: 10px 0;
+            }
+            .gallery {
+                display: block;
+                background-color: #777;
+                color: #fff;
+                margin: 0 0 2px;
+                padding: 5px;
+                &.gallery01 {
+                    background-color: $color-green;
+                }
+                &.gallery02 {
+                    background-color: $color-orange;
+                }
+                &.gallery03 {
+                    background-color: $lightColor;
+                }
+                &.gallery04 {
+                    background-color: $color-blue;
+                }
+                // 週曆
+                &.gallery_a {
+                    background-color: #bd8a64;
+                    transition: .5s;
+                    &:hover {
+                        background: darken(#bd8a64, 10);
+                    }
+                }
+                &.gallery_b {
+                    background-color: #eebb94;
+                    transition: .5s;
+                    &:hover {
+                        background: darken(#eebb94, 10);
+                    }
+                }
+                &.gallery_c {
+                    background-color: #826f66;
+                    transition: .5s;
+                    &:hover {
+                        background: darken(#826f66, 10);
+                    }
+                }
+                &.gallery_d {
+                    background-color: #483434;
+                    transition: .5s;
+                    &:hover {
+                        background: darken(#483434, 10);
+                    }
+                }
+                span {
+                    display: block;
+                    text-align: center;
+                    line-height: 1.4em;
+                }
+                .name {
+                    font-size: 0.813em;
+                }
+                .time {
+                    font-size: 0.813em;
+                }
+                .title, .name, .time {
+                    @include text-overflow;
+                }
+                .narrator {
+                    font-size: 0.813em;
+                    padding-top: 5px;
+                    margin-top: 5px;
+                    border-top: 1px dotted #fff;
+                }
+                a {
+                    color: #fff;
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+            .activity_number {
+                display: inline-block;
+                padding: 1px 15px;
+                margin: 3px 0 0 0;
+                background-color: $linkColor;
+                color: #fff;
+                border-radius: 50px;
+                font-size: 0.938em;
+                font-weight: bolder;
+            }
+        }
+        // ul {
+        //     margin: 25px 0 0;
+        //     padding: 0;
+        //     list-style-type: none;
+        //     @include screen('mobile') {
+        //         margin: 0;
+        //     }
+        //     li {
+        //         margin-bottom: 3px;
+        //         a {
+        //             display: block;
+        //             padding: 8px;
+        //             background-color: #666;
+        //             color: #fff;
+        //             text-align: center;
+        //             font-size: .938em;
+        //             white-space: nowrap;
+        //             overflow: hidden;
+        //             text-overflow: ellipsis;
+        //             &.no01 {
+        //                 background-color: #00a18b;
+        //                 &:hover {
+        //                     background-color: darken(#00a18b, 15);
+        //                 }
+        //             }
+        //             &.no02 {
+        //                 background-color: #ff6e35;
+        //                 &:hover {
+        //                     background-color: darken(#ff6e35, 15);
+        //                 }
+        //             }
+        //             &.no03 {
+        //                 background-color: #006ccf;
+        //                 &:hover {
+        //                     background-color: darken(#006ccf, 15);
+        //                 }
+        //             }
+        //             &.no04 {
+        //                 background-color: #e50022;
+        //                 &:hover {
+        //                     background-color: darken(#e50022, 15);
+        //                 }
+        //             }
+        //             &.no05 {
+        //                 background-color: #dda300;
+        //                 &:hover {
+        //                     background-color: darken(#dda300, 10);
+        //                 }
+        //             }
+        //             &.no06 {
+        //                 background-color: #0fa6c9;
+        //                 &:hover {
+        //                     background-color: darken(#0fa6c9, 15);
+        //                 }
+        //             }
+        //             &.no07 {
+        //                 background-color: #9c2c8a;
+        //                 &:hover {
+        //                     background-color: darken(#9c2c8a, 15);
+        //                 }
+        //             }
+        //             &.no08 {
+        //                 background-color: #707070;
+        //                 &:hover {
+        //                     background-color: darken(#707070, 15);
+        //                 }
+        //             }
+        //             &.no09 {
+        //                 background-color: #b38850;
+        //                 &:hover {
+        //                     background-color: darken(#b38850, 15);
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
+    }
+}
+// 園區切換
+.gallery_toggle {
+    padding: 10px 0;
+    .title {
+        background-color: $primaryColor;
+        color: #fff;
+        padding: 5px 20px;
+        position: relative;
+        float: left;
+        margin-right: 20px;
+        border-radius: 5px;
+        @include screen('xs_mobile') {
+            float: none;
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        &:after {
+            content: '';
+            border: 8px solid $primaryColor;
+            border-color: transparent transparent transparent $primaryColor;
+            position: absolute;
+            right: -14px;
+            top: 9px;
+            @include screen('xs_mobile') {
+                border: 8px solid $primaryColor;
+                border-color: $primaryColor transparent transparent transparent;
+                position: absolute;
+                right: auto;
+                top: auto;
+                left: 50%;
+                margin-left: -4px;
+                bottom: -15px;
+            }
+        }
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        list-style-type: none;
+        flex-wrap: wrap;
+        li {
+            flex: none;
+            margin-right: 7px;
+            margin-bottom: 7px;
+            @include screen('mobile') {
+                flex-basis: 49%;
+                &:nth-child(2n) {
+                    margin-right: 0;
+                }
+            }
+            @media(max-width: 400px) {
+                flex-basis: 100%;
+                margin-right: 0;
+            }
+            a {
+                padding: 5px 10px;
+                color: #fff;
+                display: block;
+                border-radius: 5px;
+                background-color: $color-green;
+                &:hover {
+                    background-color: lighten($color-green, 5);
+                    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+                }
+            }
+            &:nth-child(2) {
+                a {
+                    background-color: $color-orange;
+                    &:hover {
+                        background-color: lighten($color-orange, 5);
+                    }
+                }
+            }
+            &:nth-child(3) {
+                a {
+                    background-color: $lightColor;
+                    &:hover {
+                        background-color: lighten($lightColor, 5);
+                    }
+                }
+            }
+            &:nth-child(4) {
+                a {
+                    background-color: $color-blue;
+                    &:hover {
+                        background-color: lighten($color-blue, 5);
+                    }
+                }
+            }
+        }
+    }
+}
+// 園區圖片及月曆
+.gallery_data_block {
+    display: flex;
+    position: relative;
+    margin-bottom: 20px;
+    @include screen('mobile') {
+        flex-wrap: wrap;
+    }
+    // 圖片
+    .gallery_pic_group {
+        flex: none;
+        flex-basis: 70%;
+        position: relative;
+        @include screen('mobile') {
+            display: none;
+        }
+        .image {
+            overflow: hidden;
+            position: relative;
+            &:before {
+                display: inline-block;
+                content: "";
+                padding-top: 42.85%; //7:3
+            }
+            img {
+                display: block;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                margin: auto;
+                object-fit: cover;
+            }
+            span {
+                background-color: rgba(0, 0, 0, .7);
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                z-index: 3;
+                padding: 20px;
+                color: #fff;
+                line-height: 1.5em;
+            }
+        }
+    }
+    // 條件篩選
+    .conditional_filter_group {
+        flex: auto;
+        flex-basis: 70%;
+        position: relative;
+        background-color: #ddd;
+        padding: 20px 20px 10px;
+        border-radius: 5px;
+        display: inline-block;
+        @include screen('mobile') {
+            flex-basis: 100%;
+        }
+        .condition_block {
+            flex: none;
+            flex-basis: 100%;
+            display: flex;
+            margin-bottom: 10px;
+            align-items: center;
+            @include screen('xs_mobile') {
+                flex-wrap: wrap;
+            }
+            &.blockinline {
+                width: 48%;
+                margin-right: 2%;
+                float: left;
+                @include screen('xs_mobile') {
+                    width: 100%;
+                    margin-right: 0;
+                    float: none;
+                    clear: both;
+                }
+            }
+            &.blockinline_right {
+                width: 50%;
+                margin-right: 0;
+                float: left;
+                @include screen('xs_mobile') {
+                    width: 100%;
+                    margin-right: 0;
+                    float: none;
+                    clear: both;
+                }
+            }
+            label {
+                background-color: $primaryColor;
+                color: #fff;
+                padding: 5px 20px;
+                position: relative;
+                margin-right: 20px;
+                border-radius: 5px;
+                white-space: nowrap;
+                margin-bottom: 0;
+                @include screen('xs_mobile') {
+                    flex: none;
+                    flex-basis: 100%;
+                    margin: 0 0 15px 0;
+                }
+                &:after {
+                    content: '';
+                    border: 8px solid $primaryColor;
+                    border-color: transparent transparent transparent $primaryColor;
+                    position: absolute;
+                    right: -14px;
+                    top: 9px;
+                    @include screen('xs_mobile') {
+                        border: 8px solid $primaryColor;
+                        border-color: $primaryColor transparent transparent transparent;
+                        position: absolute;
+                        right: auto;
+                        top: auto;
+                        left: 50%;
+                        margin-left: -4px;
+                        bottom: -15px;
+                    }
+                }
+            }
+            //切換
+            .togglelist {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+                flex: auto;
+                display: flex;
+                flex-wrap: wrap;
+                li {
+                    margin: 0 7px 0 0;
+                    @media(max-width: 480px) {
+                        flex-basis: 100%;
+                        margin: 0 0 7px;
+                    }
+                    a {
+                        display: block;
+                        background-color: #666;
+                        color: #fff;
+                        text-align: center;
+                        padding: 5px 15px;
+                        border-radius: 5px;
+                        transition: .5s;
+                        &:hover, &.acitve {
+                            background-color: $color-red;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // 月曆
+    .gallery_calendar {
+        flex: none;
+        flex-basis: 30%;
+        position: relative;
+        @include screen('mobile') {
+            flex-basis: 100%;
+            margin-bottom: 30px;
+            order: -1;
+        }
+        .today_btn {
+            position: absolute;
+            z-index: 4;
+            display: inline-block;
+            right: 5px;
+            top: 5px;
+            font-size: 0.75em;
+            a {
+                color: #ddd;
+                padding: 0px 2px;
+                display: block;
+                border: 1px solid #ddd;
+                line-height: 1.3em;
+            }
+        }
+        .date_block {
+            position: absolute;
+            z-index: 3;
+            top: -7px;
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .box {
+            max-width: 100px;
+            margin: 0 auto;
+            font-weight: 600;
+            text-align: center;
+            padding: 0em;
+            overflow: hidden;
+            font-size: 3em;
+            line-height: 3em;
+            color: #fff;
+            // position: absolute;
+            // z-index: 3;
+            // top: -7px;
+            // left: 50%;
+            // margin-left: -0.4em;
+        }
+        .box_yesterday, .box_tomorrow {
+            font-size: 0;
+            padding: 0;
+            margin: 0;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 30px;
+            width: 30px;
+            height: 30px;
+            background-color: transparent !important;
+            border: none !important;
+            &:focus {
+                box-shadow: 0 0px 0px 3px #fcb118;
+            }
+        }
+        .box_yesterday {
+            background-image: url('../images/slick/icon_arrow_left_inverse2.png');
+            margin-left: 20px;
+        }
+        .box_tomorrow {
+            background-image: url('../images/slick/icon_arrow_right_inverse2.png');
+            margin-right: 20px;
+        }
+        // 開合
+        .openclose_btn {
+            position: absolute;
+            z-index: 5;
+            display: inline-block;
+            top: 96px;
+            left: 50%;
+            margin-left: -30px;
+            a {
+                display: block;
+                position: relative;
+                width: 60px;
+                height: 25px;
+                border-radius: 0 0 30px 30px;
+                background-color: #999;
+                font-size: 0;
+                color: #fff;
+                &:before {
+                    content: '';
+                    border: 7px solid #fff;
+                    border-color: transparent transparent #fff transparent;
+                    position: absolute;
+                    top: 0px;
+                    left: 50%;
+                    margin-left: -8px;
+                    transition: .5s;
+                }
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+            &.close {
+                a {
+                    &:before {
+                        transform: rotate(180deg);
+                        top: 7px;
+                    }
+                }
+            }
+        }
+    }
+    // 月曆
+    // 框
+    .pignose-calendar {
+        width: 100%;
+        max-width: 100%;
+        font-size: 85%;
+        box-shadow: none;
+        .pignose-calendar-unit {
+            height: 2.7em;
+            line-height: 2.7em;
+        }
+    }
+    // 日曆頭
+    .pignose-calendar .pignose-calendar-header {
+        margin-top: 2.2em;
+        padding: 0 0.5em;
+        @include screen('mobile') {
+            display: none;
+        }
+    }
+    // 日期範圍
+    .pignose-calendar .pignose-calendar-body {
+        padding: 0 0.5em 0.5em;
+        @include screen('mobile') {
+            display: none;
+        }
+    }
+    // 西元月份
+    .pignose-calendar-top-date {
+        display: flex;
+        justify-content: center;
+    }
+    // 月份
+    .pignose-calendar .pignose-calendar-top .pignose-calendar-top-month {
+        font-size: 100%;
+        margin: 0 10px;
+        color: #fff;
+    }
+    // 
+    .pignose-calendar .pignose-calendar-top .pignose-calendar-top-year {
+        color: #fff;
+    }
+    .pignose-calendar .pignose-calendar-top .pignose-calendar-top-date {
+        padding: 0.5em 0;
+    }
+    // 星期週末顏色
+    .pignose-calendar .pignose-calendar-header .pignose-calendar-week.pignose-calendar-week-sat, .pignose-calendar .pignose-calendar-header .pignose-calendar-week.pignose-calendar-week-sun {
+        color: #333;
+    }
+    // 所有日期
+    .pignose-calendar .pignose-calendar-unit a {
+        color: #333;
+        width: 2.3em;
+        height: 2.3em;
+        line-height: 2.3em;
+    }
+    // 所有日期
+    .pignose-calendar .pignose-calendar-unit.pignose-calendar-unit-sat a, .pignose-calendar .pignose-calendar-unit.pignose-calendar-unit-sun a {
+        color: #333;
+    }
+    // 當日字顏色
+    .pignose-calendar .pignose-calendar-unit.pignose-calendar-unit-active a {
+        color: #fff;
+    }
+    .pignose-calendar .pignose-calendar-top {
+        padding: 2em 0 5em;
+        box-shadow: none;
+        overflow: visible;
+        background-color: #666;
+    }
+    // 左箭頭
+    .pignose-calendar .pignose-calendar-top .pignose-calendar-top-nav.pignose-calendar-top-prev {
+        top: 5.5em;
+        @include screen('mobile') {
+            display: none;
+        }
+    }
+    // 右箭頭
+    .pignose-calendar .pignose-calendar-top .pignose-calendar-top-nav.pignose-calendar-top-next {
+        top: 5.5em;
+        @include screen('mobile') {
+            display: none;
+        }
+    }
+    .pignose-calendar .pignose-calendar-top .pignose-calendar-top-nav .pignose-calendar-top-icon {
+        color: #aaa;
+    }
+}
+// 相關功能
+.related_functions {
+    margin: 0 0 10px;
+    display: flex;
+    justify-content: space-between;
+    @include screen('tablet') {
+        flex-wrap: wrap;
+    }
+    @include screen('mobile') {
+        // display: block;
+    }
+    .functions_leftblock {
+        flex: none;
+        @include screen('tablet') {
+            margin-bottom: 10px;
+        }
+        @include screen('xs_mobile') {
+            margin-bottom: 10px;
+            margin-right: 10px;
+        }
+        @media(max-width: 400px) {
+            flex-basis: 100%;
+        }
+        label {
+            margin: 0;
+            padding: 5px 20px;
+            display: block;
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+        input[type="checkbox"] {
+            width: 1.3em;
+            height: 1.3em;
+            margin-right: 7px;
+        }
+    }
+    .functions_rightblock {
+        flex: none;
+        align-items: flex-end;
+        text-align: right;
+        @include screen('mobile') {
+            flex: auto;
+        }
+        @media(max-width: 400px) {
+            flex-basis: 100%;
+        }
+        // 園區提示
+        .galleryhint {
+            ul {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                list-style-type: none;
+                flex-wrap: wrap;
+                li {
+                    flex: none;
+                    margin-right: 7px;
+                    margin-bottom: 0px;
+                    padding: 5px 10px;
+                    color: #fff;
+                    background-color: $color-green;
+                    border-radius: 5px;
+                    text-align: center;
+                    @media(max-width: 840px) {
+                        margin-bottom: 7px;
+                    }
+                    @include screen('mobile') {
+                        flex-basis: 49%;
+                        &:nth-child(2n) {
+                            margin-right: 0;
+                        }
+                    }
+                    @media(max-width: 400px) {
+                        flex-basis: 100%;
+                        margin-right: 0;
+                    }
+                    &:nth-child(2) {
+                        background-color: $color-orange;
+                    }
+                    &:nth-child(3) {
+                        background-color: $lightColor;
+                    }
+                    &:nth-child(4) {
+                        background-color: $color-blue;
+                    }
+                }
+            }
+        }
+        // selecte可勾選
+        .select_list_block {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 0 10px;
+            position: relative;
+            width: 250px;
+            @include screen('mobile') {
+                width: 100%;
+            }
+        }
+        //linkblock
+        .linkblock {
+            display: inline-block;
+            @media(max-width: 400px) {
+                width: 100%;
+            }
+            a {
+                display: block;
+                padding: 5px 20px;
+                border-radius: 5px;
+                background-color: #888;
+                color: #fff;
+                text-align: center;
+                img {
+                    vertical-align: middle;
+                    margin-right: 5px;
+                }
+                &:hover {
+                    background-color: lighten(#888, 5);
+                }
+            }
+        }
+    }
+}
+// selecte可勾選
+.select_list_block {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0 10px;
+    position: relative;
+    width: 100%;
+}
+// select 可勾選
+.MultiCheckBox {
+    // border: 1px solid #e2e2e2;
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: left;
+    @include screen('mobile') {
+        width: 100% !important;
+    }
+}
+.MultiCheckBox .k-icon {
+    font-size: 15px;
+    float: right;
+    font-weight: bolder;
+    margin-top: -3px;
+    margin-right: -3px;
+    height: 10px;
+    width: 14px;
+    color: #787878;
+}
+.MultiCheckBoxDetail {
+    display: none;
+    position: absolute;
+    border: 1px solid #e2e2e2;
+    overflow-y: hidden;
+    background-color: #fff;
+    z-index: 2;
+    padding: 0 10px;
+    margin-top: 3px;
+    width: 100% !important;
+    left: 0;
+}
+.MultiCheckBoxDetailBody {
+    overflow-y: scroll;
+}
+.MultiCheckBoxDetail .cont {
+    clear: both;
+    overflow: hidden;
+    padding: 2px;
+}
+.MultiCheckBoxDetail .cont:hover {
+    background-color: #cfcfcf;
+}
+.MultiCheckBoxDetailBody>div>div {
+    float: left;
+}
+.MultiCheckBoxDetail>div>div:nth-child(1) {}
+.MultiCheckBoxDetailHeader {
+    overflow: hidden;
+    position: relative;
+    height: 28px;
+    background-color: #3d3d3d;
+}
+.MultiCheckBoxDetailHeader>input {
+    position: absolute;
+    top: 11px;
+    left: 3px;
+}
+.MultiCheckBoxDetailHeader>div {
+    position: absolute;
+    top: 5px;
+    left: 24px;
+    color: #fff;
+}
+// select 勾選2
+$border-color: #bcc;
+%textInput {
+    height: 2.4em;
+    line-height: 2.4em;
+    padding: 0 6px;
+    margin: 3px 0;
+    border-radius: 4px;
+    vertical-align: middle;
+    border: 1px solid $border-color;
+    background-color: #fff;
+}
+$border-color: #789;
+// 模擬 select 樣式的下拉選單 --------------------------------------------------------------------
+.multiSelect {
+    position: relative;
+    display: inline-block;
+    width: 28em;
+    margin: 1em 5px;
+    .selectBtn {
+        position: relative;
+        display: block;
+        cursor: pointer;
+        overflow: hidden;
+        @extend %textInput;
+        transition: .1s;
+        &:hover {
+            border-color: $border-color;
+            box-shadow: $border-color 0 0 0 1px;
+        }
+        .placeholder {
+            color: #9aa;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            margin-top: -7px;
+            width: 9px;
+            height: 9px;
+            border: 1px solid #678;
+            border-left: none;
+            border-top: none;
+            transform: rotate(45deg);
+        }
+    }
+    .optionGroup {
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        padding: 6px;
+        margin: 0;
+        background: #fff;
+        box-shadow: rgba(0, 0, 0, .3) 0 1px 6px;
+        border-radius: 4px;
+        // 有 checkbox 可複選
+        &>label {
+            display: block;
+            line-height: 1.3;
+            margin: 3px 0;
+            padding: .5em 5px .4em 2em;
+            border-radius: 3px;
+            cursor: pointer;
+            text-indent: -1.2em;
+            transition: .2s;
+            &.cascade {
+                margin-left: 1.1em;
+            }
+            &:hover {
+                background: #dee;
+            }
+            input {
+                margin-left: -.3em;
+                margin-right: .3em;
+            }
+            &.checked {
+                background-color: #bdd;
+            }
+        }
+    }
+}
+// disabled
+.disabled {
+    pointer-events: none;
+    opacity: .8;
+    box-shadow: none;
+    cursor: not-allowed;
+    -webkit-filter: grayscale(1);
+}
+// 活動主題時間表
+.activitytheme_schedule_block {
+    background-color: #fff;
+    padding: 10px 0;
+    border-radius: 5px;
+    // 時間表
+    .codyhouse {
+        text-align: center;
+        margin: 40px 0;
+    }
+    /*-------------------------------- */
+    .cd-schedule {
+        position: relative;
+        margin: 2em 0;
+        ol, ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+    }
+    .cd-schedule::before {
+        /* never visible - this is used in js to check the current MQ */
+        content: 'mobile';
+        display: none;
+    }
+    @media only screen and (min-width: 800px) {
+        .cd-schedule {
+            width: 92%;
+            max-width: 1400px;
+            margin: 2em auto;
+        }
+        .cd-schedule::after {
+            clear: both;
+            content: "";
+            display: block;
+        }
+        .cd-schedule::before {
+            content: 'desktop';
+        }
+    }
+    .cd-schedule .timeline {
+        display: none;
+    }
+    @media only screen and (min-width: 800px) {
+        .cd-schedule .timeline {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            padding-top: 50px;
+        }
+        .cd-schedule .timeline li {
+            position: relative;
+            height: 50px;
+        }
+        .cd-schedule .timeline li::after {
+            /* this is used to create the table horizontal lines */
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: #ddd;
+        }
+        .cd-schedule .timeline li:last-of-type::after {
+            display: none;
+        }
+        .cd-schedule .timeline li span {
+            display: none;
+        }
+    }
+    @media only screen and (min-width: 1000px) {
+        .cd-schedule .timeline li::after {
+            width: calc(100% - 80px);
+            left: 80px;
+        }
+        .cd-schedule .timeline li span {
+            display: inline-block;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+        .cd-schedule .timeline li:nth-of-type(2n) span {
+            display: none;
+        }
+    }
+    .cd-schedule .events {
+        position: relative;
+        z-index: 1;
+    }
+    .cd-schedule .events button {
+        position: absolute;
+        font-size: 0;
+        color: #fff;
+        opacity: 0.6;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid #ccc !important;
+        display: block;
+        transition: .5s;
+        background-size: 20px;
+        background-repeat: no-repeat;
+        background-position: center;
+        top: 5px;
+        background-color: #fff !important;
+        @media(max-width: 800px) {
+            display: none;
+        }
+    }
+    .cd-schedule .events button.prevbtn {
+        left: -22px;
+        background-image: url('../images/slick/icon_arrow_left_inverse.png');
+        &:hover {
+            opacity: 1;
+        }
+    }
+    .cd-schedule .events button.nextbtn {
+        right: -20px;
+        background-image: url('../images/slick/icon_arrow_right_inverse.png');
+        &:hover {
+            opacity: 1;
+        }
+    }
+    .cd-schedule .events .events-group {
+        margin-bottom: 30px;
+    }
+    .cd-schedule .events .top-info {
+        width: 100%;
+        padding: 0 5%;
+    }
+    .cd-schedule .events .top-info>span {
+        display: inline-block;
+        line-height: 1.2;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+    .cd-schedule .events .events-group>ul {
+        position: relative;
+        padding: 0 5%;
+        /* force its children to stay on one line */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+    .cd-schedule .events .events-group>ul::after {
+        /* never visible - used to add a right padding to .events-group > ul */
+        display: inline-block;
+        content: '-';
+        width: 1px;
+        height: 100%;
+        opacity: 0;
+        color: transparent;
+    }
+    .cd-schedule .events .single-event {
+        /* force them to stay on one line */
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        float: left;
+        height: 150px;
+        width: 70%;
+        max-width: 300px;
+        box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+        margin-right: 20px;
+        -webkit-transition: opacity .2s, background .2s;
+        transition: opacity .2s, background .2s;
+    }
+    .cd-schedule .events .single-event:last-of-type {
+        margin-right: 5%;
+    }
+    .cd-schedule .events .single-event a {
+        display: block;
+        height: 100%;
+        padding: .8em;
+    }
+    @media only screen and (min-width: 550px) {
+        .cd-schedule .events .single-event {
+            width: 40%;
+        }
+    }
+    @media only screen and (min-width: 800px) {
+        .cd-schedule .events {
+            float: left;
+            width: 100%;
+        }
+        .cd-schedule .events .wrap {
+            display: flex;
+            overflow: auto;
+            padding: 0;
+        }
+        .cd-schedule .events .events-group {
+            flex: none;
+            flex-basis: 20%;
+            // width: 14%;
+            // float: left;
+            border: 1px solid #EAEAEA;
+            /* reset style */
+            margin-bottom: 0;
+        }
+        .cd-schedule .events .events-group:not(:first-of-type) {
+            border-left-width: 0;
+        }
+        .cd-schedule .events .top-info {
+            /* vertically center its content */
+            display: table;
+            height: 50px;
+            border-bottom: 1px solid #ddd;
+            /* reset style */
+            padding: 0;
+        }
+        .cd-schedule .events .top-info>span {
+            /* vertically center inside its parent */
+            display: table-cell;
+            vertical-align: middle;
+            padding: 0 .5em;
+            text-align: center;
+            /* reset style */
+            font-weight: normal;
+            margin-bottom: 0;
+        }
+        .cd-schedule .events .events-group>ul {
+            height: 950px;
+            /* reset style */
+            display: block;
+            overflow: visible;
+            padding: 0;
+        }
+        .cd-schedule .events .events-group>ul::after {
+            clear: both;
+            content: "";
+            display: block;
+        }
+        .cd-schedule .events .events-group>ul::after {
+            /* reset style */
+            display: none;
+        }
+        .cd-schedule .events .single-event {
+            position: absolute;
+            z-index: 3;
+            /* top position and height will be set using js */
+            width: calc(100% + 2px);
+            left: 0px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+            /* reset style */
+            -ms-flex-negative: 1;
+            flex-shrink: 1;
+            height: auto;
+            max-width: none;
+            margin-right: 0;
+        }
+        .cd-schedule .events .single-event a {
+            padding: 0.8em;
+        }
+        .cd-schedule .events .single-event:last-of-type {
+            /* reset style */
+            margin-right: 0;
+        }
+        .cd-schedule .events .single-event.selected-event {
+            /* the .selected-event class is added when an user select the event */
+            visibility: hidden;
+        }
+    }
+    @media only screen and (min-width: 1000px) {
+        .cd-schedule .events {
+            /* 60px is the .timeline element width */
+            width: calc(100% - 80px);
+            margin-left: 80px;
+        }
+    }
+    .cd-schedule.loading .events .single-event {
+        /* the class .loading is added by default to the .cd-schedule element
+       it is removed as soon as the single events are placed in the schedule plan (using javascript) */
+        opacity: 0;
+    }
+    .cd-schedule .event-name,
+    .cd-schedule .event-date {
+        display: block;
+        color: white;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    .cd-schedule .event-name {
+        font-size: 0.938rem;
+        font-style: normal;
+        line-height: 1.3em;
+        border-top: 1px dotted #fff;
+        padding-top: 8px;
+        margin-top: 8px;
+        em {
+            color: red;
+            font-style: normal;
+            font-weight: bolder;
+            padding: 0 5px;
+        }
+        // &:last-of-type {
+        //     border-bottom: none;
+        // }
+    }
+    @media only screen and (min-width: 800px) {
+        .cd-schedule .event-name {
+            font-size: 0.938em;
+        }
+    }
+    .cd-schedule .event-date {
+        /* they are not included in the the HTML but added using JavScript */
+        font-size: 0.875rem;
+        opacity: .7;
+        line-height: 1.2;
+        margin-bottom: .2em;
+        font-weight: bolder;
+    }
+    .cd-schedule .single-event[data-event="event-1"],
+    .cd-schedule [data-event="event-1"] .header-bg {
+        /* this is used to set a background color for the event and the modal window */
+        background: #bd8a64;
+        transition: .5s;
+    }
+    .cd-schedule .single-event[data-event="event-1"]:hover {
+        background: darken(#bd8a64, 10);
+    }
+    .cd-schedule .single-event[data-event="event-2"],
+    .cd-schedule [data-event="event-2"] .header-bg {
+        background: #eebb94;
+        transition: .5s;
+    }
+    .cd-schedule .single-event[data-event="event-2"]:hover {
+        background: darken(#eebb94, 10);
+    }
+    .cd-schedule .single-event[data-event="event-3"],
+    .cd-schedule [data-event="event-3"] .header-bg {
+        background: #826f66;
+        transition: .5s;
+    }
+    .cd-schedule .single-event[data-event="event-3"]:hover {
+        background: darken(#826f66, 10);
+    }
+    .cd-schedule .single-event[data-event="event-4"],
+    .cd-schedule [data-event="event-4"] .header-bg {
+        background: #483434;
+        transition: .5s;
+    }
+    .cd-schedule .single-event[data-event="event-4"]:hover {
+        background: darken(#483434, 10);
+    }
+    .cd-schedule .event-modal {
+        position: fixed;
+        z-index: 3;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        visibility: hidden;
+        /* Force Hardware acceleration */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+        transform: translateX(100%);
+        -webkit-transition: visibility .4s, -webkit-transform .4s;
+        transition: visibility .4s, -webkit-transform .4s;
+        transition: transform .4s, visibility .4s;
+        transition: transform .4s, visibility .4s, -webkit-transform .4s;
+        -webkit-transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+        transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+    }
+    .cd-schedule .event-modal .header {
+        position: relative;
+        height: 70px;
+        /* vertically center its content */
+        display: table;
+        width: 100%;
+    }
+    .cd-schedule .event-modal .header .content {
+        position: relative;
+        z-index: 3;
+        /* vertically center inside its parent */
+        display: table-cell;
+        vertical-align: middle;
+        padding: .6em 5%;
+    }
+    .cd-schedule .event-modal .body {
+        position: relative;
+        width: 100%;
+        /* 70px is the .header height */
+        height: calc(100% - 70px);
+    }
+    .cd-schedule .event-modal .event-info {
+        position: relative;
+        z-index: 2;
+        line-height: 1.4;
+        height: 100%;
+        overflow: hidden;
+    }
+    .cd-schedule .event-modal .event-info>div {
+        overflow: auto;
+        height: 100%;
+        padding: 1.4em 5%;
+    }
+    .cd-schedule .event-modal .header-bg, .cd-schedule .event-modal .body-bg {
+        /* these are the morphing backgrounds - visible on desktop only */
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+    .cd-schedule .event-modal .body-bg {
+        z-index: 1;
+        background: white;
+        -webkit-transform-origin: top left;
+        -ms-transform-origin: top left;
+        transform-origin: top left;
+    }
+    .cd-schedule .event-modal .header-bg {
+        z-index: 2;
+        -webkit-transform-origin: top center;
+        -ms-transform-origin: top center;
+        transform-origin: top center;
+    }
+    .cd-schedule .event-modal .close {
+        /* this is the 'X' icon */
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 3;
+        background: rgba(0, 0, 0, 0.1);
+        /* replace text with icon */
+        color: transparent;
+        white-space: nowrap;
+        text-indent: 100%;
+        height: 70px;
+        width: 70px;
+    }
+    .cd-schedule .event-modal .close::before, .cd-schedule .event-modal .close::after {
+        /* these are the two lines of the 'X' icon */
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 2px;
+        height: 22px;
+        background: white;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    .cd-schedule .event-modal .close::before {
+        -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+        -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+        transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    }
+    .cd-schedule .event-modal .close::after {
+        -webkit-transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+        -ms-transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+        transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+    }
+    .cd-schedule .event-modal .event-date {
+        display: none;
+    }
+    .cd-schedule .event-modal.no-transition {
+        -webkit-transition: none;
+        transition: none;
+    }
+    .cd-schedule .event-modal.no-transition .header-bg, .cd-schedule .event-modal.no-transition .body-bg {
+        -webkit-transition: none;
+        transition: none;
+    }
+    @media only screen and (min-width: 800px) {
+        .cd-schedule .event-modal {
+            /* reset style */
+            right: auto;
+            width: auto;
+            height: auto;
+            -webkit-transform: translateX(0);
+            -ms-transform: translateX(0);
+            transform: translateX(0);
+            will-change: transform, width, height;
+            -webkit-transition: height .4s, width .4s, visibility .4s, -webkit-transform .4s;
+            transition: height .4s, width .4s, visibility .4s, -webkit-transform .4s;
+            transition: height .4s, width .4s, transform .4s, visibility .4s;
+            transition: height .4s, width .4s, transform .4s, visibility .4s, -webkit-transform .4s;
+            -webkit-transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+            transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+        }
+        .cd-schedule .event-modal .header {
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+            height: 100%;
+        }
+        .cd-schedule .event-modal .header .content {
+            /* reset style */
+            display: block;
+            padding: .8em;
+        }
+        .cd-schedule .event-modal .event-info>div {
+            padding: 2em 3em 2em 2em;
+        }
+        .cd-schedule .event-modal .body {
+            height: 100%;
+            width: auto;
+        }
+        .cd-schedule .event-modal .header-bg, .cd-schedule .event-modal .body-bg {
+            /* Force Hardware acceleration */
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            will-change: transform;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+        .cd-schedule .event-modal .header-bg {
+            -webkit-transition: -webkit-transform .4s;
+            transition: -webkit-transform .4s;
+            transition: transform .4s;
+            transition: transform .4s, -webkit-transform .4s;
+            -webkit-transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+            transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+        }
+        .cd-schedule .event-modal .body-bg {
+            opacity: 0;
+            -webkit-transform: none;
+            -ms-transform: none;
+            transform: none;
+        }
+        .cd-schedule .event-modal .event-date {
+            display: block;
+        }
+        .cd-schedule .event-modal .close, .cd-schedule .event-modal .event-info {
+            opacity: 0;
+        }
+        .cd-schedule .event-modal .close {
+            width: 40px;
+            height: 40px;
+            background: transparent;
+        }
+        .cd-schedule .event-modal .close::after, .cd-schedule .event-modal .close::before {
+            background: #222222;
+            height: 16px;
+        }
+    }
+    @media only screen and (min-width: 1000px) {
+        .cd-schedule .event-modal .header .content {
+            padding: 1.2em;
+        }
+    }
+    .cd-schedule.modal-is-open .event-modal {
+        /* .modal-is-open class is added as soon as an event is selected */
+        -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+        transform: translateX(0);
+        visibility: visible;
+    }
+    .cd-schedule.modal-is-open .event-modal .event-info>div {
+        /* smooth scroll on iOS touch devices */
+        -webkit-overflow-scrolling: touch;
+    }
+    @media only screen and (min-width: 800px) {
+        .cd-schedule.animation-completed .event-modal .close,
+        .cd-schedule.content-loaded.animation-completed .event-modal .event-info {
+            /*  the .animation-completed class is added when the modal animation is completed
+            the .content-loaded class is added when the modal content has been loaded (using ajax) */
+            opacity: 1;
+            -webkit-transition: opacity .2s;
+            transition: opacity .2s;
+        }
+        .cd-schedule.modal-is-open .body-bg {
+            opacity: 1;
+            -webkit-transition: -webkit-transform .4s;
+            transition: -webkit-transform .4s;
+            transition: transform .4s;
+            transition: transform .4s, -webkit-transform .4s;
+            -webkit-transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+            transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+        }
+    }
+    .cd-schedule .cover-layer {
+        /* layer between the content and the modal window */
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transition: opacity .4s, visibility .4s;
+        transition: opacity .4s, visibility .4s;
+    }
+    .cd-schedule.modal-is-open .cover-layer {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+// fancybox 資料內容
+.lightbox_group {
+    // fancy原設定
+    &.fancybox-content {
+        max-width: 700px !important;
+        max-height: 100% !important;
+        border-radius: 10px;
+        padding: 20px 44px;
+        @include screen('xs_mobile') {
+            padding: 30px;
+            height: 100% !important;
+            width: 100%;
+        }
+    }
+    h2 {
+        font-size: 1.5em;
+        padding-bottom: 10px;
+        margin: 10px 0;
+        border-bottom: 1px solid #ddd;
+        color: #333;
+    }
+    .btn_grp {
+        padding: 1em 0;
+        @media(max-width: 480px) {
+            button {
+                width: 100%;
+            }
+        }
+    }
+    .fancybox-close-small {
+        position: fixed;
+        opacity: 1;
+    }
+    .fancybox-button {
+        background-color: #ccc !important;
+        border: 1px solid #ccc !important;
+    }
+    .account_number {
+        input.number {
+            background-image: url('../images/icon/icon_mail.svg');
+            background-repeat: no-repeat;
+            background-position: 10px center;
+            background-size: 25px;
+            padding-left: 50px;
+        }
+    }
+    .password_block {
+        display: flex;
+        align-items: center;
+        @media(max-width: 480px) {
+            display: block;
+        }
+        input.password {
+            flex: auto;
+            flex-basis: calc(100% - 1.5px);
+            background-image: url('../images/icon/icon_lock.svg');
+            background-repeat: no-repeat;
+            background-position: 10px center;
+            background-size: 25px;
+            padding-left: 50px;
+            @media(max-width: 480px) {
+                flex-basis: 100%;
+            }
+        }
+        img {
+            margin-left: 5px;
+            width: 100px;
+            height: 35px;
+        }
+    }
+    .form_grp {
+        &.solidline {
+            border-bottom: 2px solid #999;
+        }
+        label {
+            margin: 0;
+        }
+        .form_title {
+            @include screen('xs_mobile') {
+                flex: none;
+                flex-basis: 100%;
+                margin-bottom: 0;
+                color: #333;
+                font-weight: bolder;
+            }
+        }
+        .form_content {
+            @include screen('xs_mobile') {
+                flex: auto;
+                flex-basis: 100%;
+            }
+            select {
+                width: 50%;
+                margin-right: 5px;
+                vertical-align: top;
+                color: #555;
+                @include screen('xs_mobile') {
+                    width: 100%;
+                }
+            }
+            input[type="text"], textarea {
+                color: #555;
+                @include screen('xs_mobile') {
+                    width: 100%;
+                }
+            }
+            input[type="checkbox"] {
+                width: 1.4em;
+                height: 1.4em;
+                margin-right: 5px;
+            }
+            em {
+                font-style: normal;
+                color: $color-red;
+                padding: 0 3px;
+            }
+            ol {
+                margin: 0 0 0 25px;
+                padding: 0;
+                li {
+                    margin-bottom: 8px;
+                }
+            }
+        }
+    }
+}
+// 備註
+.remark {
+    color: #666;
+    font-size: 0.938em;
+}
+// 會員區
+.membersteps_block {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 30px;
+    // 步驟
+    .membersteps_list {
+        background-color: #ececec;
+        border-radius: 5px;
+        padding: 60px 30px 30px;
+        font-size: 1em;
+        margin-bottom: 30px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        @media (max-width: 900px) {
+            padding: 50px 20px 30px 70px;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            @media (max-width: 900px) {
+                display: block;
+            }
+            li {
+                flex: auto;
+                flex-basis: 21%;
+                margin: 0;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 15px;
+                box-sizing: border-box;
+                min-height: 80px;
+                @media (max-width: 900px) {
+                    flex-basis: 100%;
+                }
+                div {
+                    border-radius: 5px;
+                    line-height: 1.2em;
+                    background-color: #bbb;
+                    color: #fff;
+                    padding: 15px;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 1.125em;
+                    span {
+                        font-size: 1.063em;
+                        margin: 0;
+                        padding: 0;
+                        flex: auto;
+                        flex-basis: 100%;
+                        font-weight: bolder;
+                        em {
+                            padding: 0 5px;
+                            font-style: normal;
+                            font-weight: 900;
+                            font-size: 1.5em;
+                        }
+                    }
+                }
+                &:before {
+                    content: "";
+                    width: 26px;
+                    height: 26px;
+                    border-radius: 50%;
+                    background-color: #fff;
+                    border: 4px solid #bbb;
+                    position: absolute;
+                    left: 50%;
+                    top: -38px;
+                    z-index: 3;
+                    margin-left: -13px;
+                    @media (max-width: 900px) {
+                        margin-left: -50px;
+                        left: 0;
+                        top: auto;
+                    }
+                }
+                &:after {
+                    content: "";
+                    width: 100%;
+                    height: 4px;
+                    background-color: #bbb;
+                    position: absolute;
+                    left: auto;
+                    right: 0;
+                    top: -22px;
+                    bottom: 0;
+                    z-index: 2;
+                    @media (max-width: 900px) {
+                        width: 6px;
+                        height: 100%;
+                        top: 0;
+                        bottom: 0;
+                        left: -36px;
+                        right: auto;
+                    }
+                }
+                &.active {
+                    div {
+                        background-color: $primaryColor;
+                    }
+                    &:before {
+                        border: 4px solid $primaryColor;
+                        background-color: #fff;
+                        background-image: url("../images/icon/icon_edit.svg");
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: 20px;
+                    }
+                    &:after {
+                        background: $primaryColor;
+                        background: linear-gradient(90deg,
+                            $primaryColor 0%,
+                            $primaryColor 50%,
+                            rgba(187, 187, 187, 1) 50%,
+                            rgba(187, 187, 187, 1) 100%);
+                        @media (max-width: 900px) {
+                            background: $primaryColor;
+                            background: linear-gradient(180deg,
+                                $primaryColor 0%,
+                                $primaryColor 50%,
+                                rgba(187, 187, 187, 1) 50%,
+                                rgba(187, 187, 187, 1) 100%);
+                        }
+                    }
+                }
+                &.finish {
+                    div {
+                        background-color: $lightColor;
+                    }
+                    &:before {
+                        border: 4px solid $lightColor;
+                        background-color: $lightColor;
+                        background-image: url("../images/icon_tick.svg");
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: 20px;
+                    }
+                    &:after {
+                        background: $primaryColor;
+                        background: linear-gradient(90deg,
+                            $primaryColor 0%,
+                            $primaryColor 50%,
+                            rgba(187, 187, 187, 1) 50%,
+                            rgba(187, 187, 187, 1) 100%);
+                        @media (max-width: 900px) {
+                            background: $primaryColor;
+                            background: linear-gradient(180deg,
+                                $primaryColor 0%,
+                                $primaryColor 50%,
+                                rgba(187, 187, 187, 1) 50%,
+                                rgba(187, 187, 187, 1) 100%);
+                        }
+                    }
+                }
+                &.pass {
+                    div {
+                        background-color: lighten($primaryColor, 50);
+                        color: darken($primaryColor, 5);
+                    }
+                    &:before {
+                        border: 4px solid $primaryColor;
+                        background-color: $primaryColor;
+                        background-image: url("../images/icon_tick.svg");
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: 20px;
+                    }
+                    &:after {
+                        background-color: $primaryColor;
+                        @media (max-width: 900px) {
+                            background-color: $primaryColor;
+                        }
+                    }
+                }
+                &:first-child {
+                    &:after {
+                        content: "";
+                        background: rgb(187, 187, 187);
+                        background: linear-gradient(-90deg,
+                            rgba(187, 187, 187, 1) 0%,
+                            rgba(187, 187, 187, 1) 50%,
+                            rgba(236, 236, 236, 1) 50%,
+                            rgba(236, 236, 236, 1) 100%);
+                        @media (max-width: 900px) {
+                            width: 6px;
+                            background: rgb(187, 187, 187);
+                            background: linear-gradient(0deg,
+                                rgba(187, 187, 187, 1) 0%,
+                                rgba(187, 187, 187, 1) 50%,
+                                rgba(236, 236, 236, 1) 50%,
+                                rgba(236, 236, 236, 1) 100%);
+                        }
+                    }
+                    &.pass {
+                        &:after {
+                            background: $primaryColor;
+                            background: linear-gradient(-90deg,
+                                $primaryColor 0%,
+                                $primaryColor 50%,
+                                rgba(236, 236, 236, 1) 50%,
+                                rgba(236, 236, 236, 1) 100%);
+                            @media (max-width: 900px) {
+                                background: $primaryColor;
+                                background: linear-gradient(0deg,
+                                    $primaryColor 0%,
+                                    $primaryColor 50%,
+                                    rgba(236, 236, 236, 1) 50%,
+                                    rgba(236, 236, 236, 1) 100%);
+                            }
+                        }
+                    }
+                }
+                &:last-child {
+                    &:after {
+                        background: rgb(187, 187, 187);
+                        background: linear-gradient(90deg,
+                            rgba(187, 187, 187, 1) 0%,
+                            rgba(187, 187, 187, 1) 50%,
+                            rgba(236, 236, 236, 1) 50%,
+                            rgba(236, 236, 236, 1) 100%);
+                    }
+                    &.finish {
+                        &:after {
+                            background: $primaryColor;
+                            background: linear-gradient(90deg,
+                                $primaryColor 0%,
+                                $primaryColor 50%,
+                                rgba(236, 236, 236, 1) 50%,
+                                rgba(236, 236, 236, 1) 100%);
+                        }
+                    }
+                    @media (max-width: 900px) {
+                        &:after {
+                            background: rgb(187, 187, 187);
+                            background: linear-gradient(180deg,
+                                rgba(187, 187, 187, 1) 0%,
+                                rgba(187, 187, 187, 1) 50%,
+                                rgba(236, 236, 236, 1) 50%,
+                                rgba(236, 236, 236, 1) 100%);
+                        }
+                        &.finish {
+                            &:after {
+                                background: $primaryColor;
+                                background: linear-gradient(180deg,
+                                    $primaryColor 0%,
+                                    $primaryColor 50%,
+                                    rgba(236, 236, 236, 1) 50%,
+                                    rgba(236, 236, 236, 1) 100%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .membersteps_content {
+        padding:0;
+    }
+}
+// 同意宣告
+.membersteps_content {
+    background-color: #fff;
+    padding:20px;
+    border-radius: 5px;
+    .declare_content {
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 5px;
+        height: 420px;
+        overflow-y: scroll;
+        margin-bottom: 20px;
+    }
+    .agree_option {
+        input[type="checkbox"] {
+            width: 1.4em;
+            height: 1.4em;
+            margin-right: 5px;
+        }
+    }
+    .btn_grp {
+        padding: 1em 0;
+    }
+}
+//會員說明
+.member_explain {
+    margin-bottom: 10px;
+    position: relative;
+    font-size: 1.125em;
+    line-height: 1.45em;
+    float: left;
+    em {
+        font-style: normal;
+        color: $color-red;
+        padding: 0 .5em;
+    }
+}
+//註冊完成說明
+.finish_explain {
+    margin: 50px 0;
+    position: relative;
+    font-size: 1.75em;
+    line-height: 1.55em;
+    text-align: center;
+    font-weight: bolder;
+    color: $primaryColor;
+}
+// 
+// 新增團體btn
+.add_group_btn {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    float: right;
+    a {
+        display: block;
+        padding: 5px 20px;
+        border-radius: 5px;
+        background-color: $color-red;
+        color: #fff;
+        &:hover {
+            background-color: lighten($color-red, 5);
+        }
+        em {
+            font-style: normal;
+            font-weight: bolder;
+        }
+    }
+}
+// 勾勾
+.tickimg {
+    font-size: 0;
+    background-image: url('../images/icon_tick2.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25px;
+    width: 25px;
+    height: 25px;
+    margin: 0 auto;
+    display: block;
+    @include screen('mobile') {
+        margin: 0;
+    }
+}
+// 立即登入系統
+.login_system_block {
+    width: 450px;
+    margin: 0 auto 50px;
+    padding: 30px 40px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+    @include screen('xs_mobile') {
+        width: 100%;
+        padding: 30px;
+    }
+    .title {
+        margin: 10px auto 20px;
+        padding: 0;
+        text-align: center;
+        line-height: 1.7em;
+        letter-spacing: 0.05em;
+        color: #333;
+        font-size: 1.5em;
+        font-weight: bolder;
+        position: relative;
+    }
+    .account_number {
+        input.number {
+            background-image: url('../images/icon/icon_mail.svg');
+            background-repeat: no-repeat;
+            background-position: 10px center;
+            background-size: 25px;
+            padding-left: 50px;
+        }
+    }
+    .password_block {
+        display: flex;
+        align-items: center;
+        @media(max-width: 480px) {
+            display: block;
+        }
+        input.password {
+            flex: auto;
+            flex-basis: calc(100% - 1.5px);
+            background-image: url('../images/icon/icon_lock.svg');
+            background-repeat: no-repeat;
+            background-position: 10px center;
+            background-size: 25px;
+            padding-left: 50px;
+            @media(max-width: 480px) {
+                flex-basis: 100%;
+            }
+        }
+        img {
+            margin-left: 5px;
+            width: 100px;
+            height: 35px;
+        }
+    }
+    .btn_grp {
+        padding: 1em 0;
+        @media(max-width: 480px) {
+            input {
+                width: 100%;
+            }
+        }
+    }
+}
+// 預約行事曆
+.reserve_data_group {
+    margin: 25px 0 0 0;
+    .reserve_data {
+        background-color: #ddd;
+        padding: 8px;
+        color: #333;
+        margin: 0 0 8px;
+        .title {
+            color: #333;
+            font-size: 0.938em;
+            border-bottom: 1px dotted #999;
+        }
+        .date_time {
+            font-size: 0.813em;
+            color: #333;
+            span {
+                padding: 0 0 0 5px;
+            }
+        }
+        .gallery {
+            padding: 8px;
+            color: #fff;
+            background-color: #666;
+            line-height: 1.4em;
+            font-size: 0.938em;
+            margin-bottom: 8px;
+            .name {
+                font-size: 0.875em;
+                display: block;
+            }
+            &.gallery01 {
+                background-color: $color-green;
+            }
+            &.gallery02 {
+                background-color: $color-orange;
+            }
+            &.gallery03 {
+                background-color: $lightColor;
+            }
+            &.gallery04 {
+                background-color: $color-blue;
+            }
+        }
+        .btnblock {
+            text-align: center;
+            .btn {
+                min-width: auto;
+                padding: 0.2em 0.5em;
+                font-size: 0.938em;
+                @media(max-width: 1200px) {
+                    margin: 0 0 3px !important;
+                    width: 100%;
+                }
+                @include screen('mobile') {
+                    margin: 0 3px !important;
+                    width: auto;
+                }
+            }
+        }
+    }
+}
