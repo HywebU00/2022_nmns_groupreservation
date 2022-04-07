@@ -860,7 +860,11 @@
                 background-size: 75%;
             }
             @media(max-width: 400px) {
-                left: -10%;
+                left: -5%;
+                background-size: 62%;
+            }
+            @media(max-width: 350px) {
+                left: -9%;
                 background-size: 62%;
             }
         }
@@ -878,12 +882,16 @@
                 background-size: 90%;
             }
             @include screen('xs_mobile') {
-                right: -8%;
+                right: -4%;
                 background-size: 75%;
             }
             @media(max-width: 400px) {
-                right: -15%;
+                right: -9%;
                 background-size: 61%;
+            }
+            @media(max-width: 350px) {
+                right: -14%;
+                background-size: 62%;
             }
         }
         h2 {
