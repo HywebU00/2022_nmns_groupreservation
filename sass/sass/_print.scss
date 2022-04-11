@@ -31,7 +31,7 @@
     .innerpage {
         margin-top: 0 !important;
     }
-    .Headline_block, .function{
+    .Headline_block, .function {
         display: none;
     }
     .main,
@@ -156,6 +156,17 @@
                     vertical-align: middle;
                 }
             }
+        }
+    }
+    .fancybox-active {
+        .sidebar, .goCenter, .wrapper {
+            display: none;
+        }
+        .fancybox-container .lightbox_group.fancybox-content {
+            max-width: 100% !important;
+        }
+        .fancybox-button {
+            display: none;
         }
     }
 }

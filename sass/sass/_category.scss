@@ -11,24 +11,23 @@
         }
     }
     a {
-        background-color:$secondaryColor;
-       border-radius: 3px;
+        background-color: $secondaryColor;
+        border-radius: 3px;
         padding: .7em 1.5em;
         display: block;
-        color: #fff;
+        color: #fff !important;
         @include box-sizing();
+        cursor: pointer;
         // border-radius:4px;
         &:hover,
         &:focus {
             color: #FFF;
-             background-color:darken($secondaryColor, 15);
-           
+            background-color: darken($secondaryColor, 15);
             box-shadow: none;
         }
         &.active {
             color: #FFF;
-            background-color:#000;
-            
+            background-color: #000;
         }
         span {
             font-size: .813em;
