@@ -189,7 +189,6 @@ $(function() {
     $('.modal .close').click(closeModal);
     $('.btn_grp .cancel').click(closeModal);
 });
-
 // 時間表
 jQuery(document).ready(function($) {
     var transitionEnd = 'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend';
@@ -209,7 +208,6 @@ jQuery(document).ready(function($) {
         this.eventsGroup = this.eventsWrapper.find('.events-group');
         this.singleEvents = this.eventsGroup.find('.single-event');
         this.eventSlotHeight = this.eventsGroup.eq(0).children('.top-info').outerHeight();
-
         // this.modal = this.element.find('.event-modal');
         // this.modalHeader = this.modal.find('.header');
         // this.modalHeaderBg = this.modal.find('.header-bg');
@@ -598,12 +596,10 @@ jQuery.fn.extend({
         this.val(arr);
     }
 });
-
 // 月曆
-
 $(function() {
     $('.calendar').pignoseCalendar();
-    $('.gallery_calendar .openclose_btn a').click(function(){
+    $('.gallery_calendar .openclose_btn a').click(function() {
         if ($('.calendar .pignose-calendar-header').is(':visible'), $('.calendar .pignose-calendar-body').is(':visible')) {
             $('.calendar .pignose-calendar-header').stop().fadeOut();
             $('.calendar .pignose-calendar-body').stop().fadeOut();
@@ -617,7 +613,18 @@ $(function() {
             $('.pignose-calendar-top .pignose-calendar-top-next').stop().fadeIn();
             $(this).parent('.openclose_btn').removeClass('close');
         }
-        
     })
 });
-
+// 時間表
+$(function() {
+    // $('.events').click(function(){
+    //     alert($(".schedule_block .events .events-group").length);
+    // })
+    if ($('.schedule_block .events .events-group').length < 5) {
+        $('.schedule_block .events .events-group').css('flex-grow', '1');
+        $('.schedule_block .events .events-group').css('flex-shrink', '1');
+    } else {
+        $('.schedule_block .events .events-group').css('flex-grow', '0');
+        $('.schedule_block .events .events-group').css('flex-shrink', '0');
+    }
+})
