@@ -622,7 +622,7 @@ $(function() {
     // $('.events').click(function(){
     //     alert($(".schedule_block .events .events-group").length);
     // })
-    if ($('.schedule_block .events .events-group').length < 5) {
+    if ($('.schedule_block .events .events-group').length < 7) {
         $('.schedule_block .events .events-group').css('flex-grow', '1');
         $('.schedule_block .events .events-group').css('flex-shrink', '1');
     } else {
