@@ -512,6 +512,11 @@ $(function() {
             $('.scrollToTop').fadeOut();
         }
     });
+    $(window).bind('scroll', function() {
+        if ($(this).scrollTop() > 90) {
+            $('.member_block .content').slideUp();
+        } 
+    });
     /*-----------------------------------*/
     /////click event to scroll to top//////
     /*-----------------------------------*/
