@@ -44,7 +44,7 @@ table {
             display: block;
             margin: -1em;
             padding: 1em;
-            position:relative;
+            position: relative;
             z-index: 9;
             em {
                 color: $color-red;
@@ -67,15 +67,13 @@ table {
         }
         &.date {
             text-align: center;
-            
             @include screen('mobile') {
                 text-align: left;
             }
         }
-        .time{
-            display:inline-block;
-            padding:0 0 0 8px;
-
+        .time {
+            display: inline-block;
+            padding: 0 0 0 8px;
         }
     }
     th {
@@ -102,7 +100,6 @@ table {
             margin-bottom: 5px;
         }
     }
-
     .word_green {
         color: darken($secondaryColor, 10);
     }
@@ -110,8 +107,8 @@ table {
         padding: .2em 1em;
         margin: 0 3px !important;
         min-width: 6em;
-        @include screen('tablet'){
-            margin:0 3px 3px !important;
+        @include screen('tablet') {
+            margin: 0 3px 3px !important;
         }
     }
     .select_people {
@@ -126,7 +123,7 @@ table {
     // 各館分色
     .galleryhint01 {
         display: block;
-        border-radius:5px;
+        border-radius: 5px;
         padding: 0.2em 0.5em;
         line-height: 1.4em;
         width: 100%;
@@ -135,7 +132,7 @@ table {
     }
     .galleryhint02 {
         display: block;
-        border-radius:5px;
+        border-radius: 5px;
         padding: 0.2em 0.5em;
         line-height: 1.4em;
         width: 100%;
@@ -144,7 +141,7 @@ table {
     }
     .galleryhint03 {
         display: block;
-        border-radius:5px;
+        border-radius: 5px;
         padding: 0.2em 0.5em;
         line-height: 1.4em;
         width: 100%;
@@ -153,7 +150,7 @@ table {
     }
     .galleryhint04 {
         display: block;
-        border-radius:5px;
+        border-radius: 5px;
         padding: 0.2em 0.5em;
         line-height: 1.4em;
         width: 100%;
@@ -187,19 +184,20 @@ table {
             border-bottom: 1px solid #ccc !important;
             position: relative;
             // padding: 10px !important;
-            padding: .6em;
+            padding: 10px;
             white-space: normal;
             text-align: left;
             display: block;
             padding-left: 35% !important;
             min-height: 50px;
+            line-height: 1.3em;
             &:before {
                 content: attr(data-title);
                 // display: block;
                 white-space: wrap;
                 text-align: left;
                 // color: $secondaryColor;
-                font-size: 1em;
+                font-size: 0.938em;
                 font-weight: bold;
                 position: absolute;
                 top: 0;
@@ -210,13 +208,14 @@ table {
                 background-color: #333;
                 color: #fff;
                 @include box-sizing;
+                line-height: 1.3em;
             }
             &:last-child {
                 border-bottom: none !important;
             }
         }
     }
-    @media(max-width: 480px) {
+    @media(max-width: 375px) {
         background-color: transparent !important; //Force table to not be like tables anymore
         thead,
         tbody,
@@ -258,11 +257,19 @@ table {
                 top: 0;
                 left: 0;
                 bottom: 0;
-                padding: 10px;
+                padding: 10px 10px 10px 22px;
                 width: 100%;
                 background-color: transparent;
                 color: #000;
                 @include box-sizing;
+            }
+            &:after {
+                content: '';
+                border: 5px solid #333;
+                border-color: transparent transparent transparent #333;
+                position: absolute;
+                left: 10px;
+                top: 16px;
             }
             &:last-child {
                 border-bottom: none !important;

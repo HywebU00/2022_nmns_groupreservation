@@ -630,3 +630,11 @@ $(function() {
         $('.schedule_block .events .events-group').css('flex-shrink', '0');
     }
 })
+
+// 園區切換
+$(function(){
+    $('.gallery_toggle ul li a').click(function(){
+        $(this).addClass('active');
+        $(this).parent().siblings('li').children('a').removeClass('active');
+    })
+})
