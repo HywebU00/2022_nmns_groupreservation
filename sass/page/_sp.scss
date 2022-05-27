@@ -456,6 +456,10 @@
         float: left;
         margin-right: 15px;
         border-radius: 5px;
+        margin-top: 4px;
+        @include screen('mobile') {
+            margin-top: 0;
+        }
         @include screen('xs_mobile') {
             float: none;
             display: inline-block;
@@ -502,7 +506,7 @@
                     margin-right: 0;
                 }
             }
-            @media(max-width: 375px) {
+            @media(max-width: 374px) {
                 flex-basis: 100%;
                 max-width: 100%;
                 margin-right: 0;
@@ -510,7 +514,7 @@
             }
             a {
                 padding: 5px 7px;
-                color: #fff;
+                color: rgba(255, 255, 255, .5);
                 display: block;
                 border-radius: 5px;
                 background-color: darken($color-green, 5);
@@ -522,16 +526,17 @@
                     background-color: lighten($color-green, 8);
                 }
                 &.active {
+                    color: rgba(255, 255, 255, 1);
                     background-color: lighten($color-green, 8);
                     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-                    padding: 5px 5px 5px 20px;
+                    padding: 9px 5px 9px 18px;
                     &:before {
                         content: '';
                         border: 6px solid #fff;
                         border-color: transparent transparent transparent #fff;
                         position: absolute;
                         left: 8px;
-                        top: 10px;
+                        top: 14px;
                     }
                     // background-image: url('../images/icon_tick.svg');
                     // background-repeat: no-repeat;
@@ -982,7 +987,7 @@
                 flex-wrap: wrap;
                 li {
                     flex: none;
-                    margin-right: 7px;
+                    margin-right: 8px;
                     margin-bottom: 0px;
                     padding: 5px 10px;
                     color: #fff;
@@ -993,13 +998,15 @@
                         margin-bottom: 7px;
                     }
                     @include screen('mobile') {
-                        flex-basis: 49%;
+                        flex-basis: 48.5%;
+                        max-width: 48.5%;
                         &:nth-child(2n) {
                             margin-right: 0;
                         }
                     }
-                    @media(max-width: 375px) {
+                    @media(max-width: 374px) {
                         flex-basis: 100%;
+                        max-width: 100%;
                         margin-right: 0;
                     }
                     &:nth-child(2) {
