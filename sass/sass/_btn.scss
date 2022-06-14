@@ -104,6 +104,10 @@ $btn-radius:5px;
     @extend %btn;
     @include btn_setting($color-green, #FFF);
 }
+.btn-green-light {
+    @extend %btn;
+    @include btn_setting(#88bf59, #FFF);
+}
 .btn-blue {
     @extend %btn;
     @include btn_setting($color-blue, #FFF);
@@ -111,6 +115,10 @@ $btn-radius:5px;
 .btn-yellow {
     @extend %btn;
     @include btn_setting(lighten($color-yellow, 5), #FFF);
+}
+.btn-yellow-dark {
+    @extend %btn;
+    @include btn_setting(#cc9e62, #FFF);
 }
 .btn-orange {
     @extend %btn;
