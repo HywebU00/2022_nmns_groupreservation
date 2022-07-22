@@ -1495,7 +1495,7 @@ $border-color: #789;
             /* top position and height will be set using js */
             width: calc(100% + 2px);
             left: 0px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+            // box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), inset 0 -3px 0 rgba(0, 0, 0, 0.2);
             /* reset style */
             -ms-flex-negative: 1;
             flex-shrink: 1;
