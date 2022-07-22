@@ -310,10 +310,10 @@
                     }
                 }
                 &.gallery_b {
-                    background-color: #b56030;
+                    background-color: #dd8655;
                     transition: .5s;
                     &:hover {
-                        background: darken(#b56030, 10);
+                        background: darken(#dd8655, 10);
                     }
                 }
                 &.gallery_c {
@@ -324,10 +324,10 @@
                     }
                 }
                 &.gallery_d {
-                    background-color: #483434;
+                    background-color: #baa373;
                     transition: .5s;
                     &:hover {
-                        background: darken(#483434, 10);
+                        background: darken(#baa373, 10);
                     }
                 }
                 span {
@@ -1531,6 +1531,7 @@ $border-color: #789;
     .cd-schedule .event-date {
         display: block;
         color: white;
+        font-weight: bold;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
@@ -1542,7 +1543,7 @@ $border-color: #789;
         padding-top: 8px;
         margin-top: 8px;
         em {
-            color: red;
+            color: #eddb10;
             font-style: normal;
             font-weight: bolder;
             padding: 0 5px;
@@ -1559,7 +1560,7 @@ $border-color: #789;
     .cd-schedule .event-date {
         /* they are not included in the the HTML but added using JavScript */
         font-size: 0.875rem;
-        opacity: .7;
+        opacity:1;
         line-height: 1.2;
         margin-bottom: .2em;
         font-weight: bolder;
@@ -1575,11 +1576,11 @@ $border-color: #789;
     }
     .cd-schedule .single-event[data-event="event-2"],
     .cd-schedule [data-event="event-2"] .header-bg {
-        background: #b56030;
+        background: #dd8655;
         transition: .5s;
     }
     .cd-schedule .single-event[data-event="event-2"]:hover {
-        background: darken(#b56030, 10);
+        background: darken(#dd8655, 10);
     }
     .cd-schedule .single-event[data-event="event-3"],
     .cd-schedule [data-event="event-3"] .header-bg {
@@ -1591,11 +1592,11 @@ $border-color: #789;
     }
     .cd-schedule .single-event[data-event="event-4"],
     .cd-schedule [data-event="event-4"] .header-bg {
-        background: #483434;
+        background: #baa373;
         transition: .5s;
     }
     .cd-schedule .single-event[data-event="event-4"]:hover {
-        background: darken(#483434, 10);
+        background: darken(#baa373, 10);
     }
     .cd-schedule .event-modal {
         position: fixed;
