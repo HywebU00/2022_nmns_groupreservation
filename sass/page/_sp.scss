@@ -2359,10 +2359,10 @@ $border-color: #789;
     }
     .account_number {
         input.number {
-            background-image: url('../images/icon/icon_mail.svg');
+            background-image: url('../images/icon/icon_man2.svg');
             background-repeat: no-repeat;
             background-position: 10px center;
-            background-size: 25px;
+            background-size: 20px;
             padding-left: 50px;
         }
     }
@@ -2378,7 +2378,7 @@ $border-color: #789;
             background-image: url('../images/icon/icon_lock.svg');
             background-repeat: no-repeat;
             background-position: 10px center;
-            background-size: 25px;
+            background-size: 20px;
             padding-left: 50px;
             @media(max-width: 480px) {
                 flex-basis: 100%;
