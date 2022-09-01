@@ -226,7 +226,7 @@ jQuery(document).ready(function($) {
         var mq = this.mq();
         if (mq == 'desktop' && !this.element.hasClass('js-full')) {
             //in this case you are on a desktop version (first load or resize from mobile)
-            this.eventSlotHeight = this.eventsGroup.eq(0).children('.top-info').outerHeight();
+            this.eventSlotHeight = this.eventsGroup.eq(0).children('.top-info').outerHeight()+ 20;
             this.element.addClass('js-full');
             this.placeEvents();
             this.element.hasClass('modal-is-open') && this.checkEventModal();
